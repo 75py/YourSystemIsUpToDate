@@ -1,0 +1,61 @@
+<resources>
+
+    <color name="primary_1">#FF930D</color>
+    <color name="primary_2">#E8650C</color>
+    <color name="primary_3">#FF4200</color>
+    <color name="primary_4">#E8250C</color>
+    <color name="primary_5">#FF0D26</color>
+    <color name="primary_1_translucent">#7FFF930D</color>
+    <color name="primary_2_translucent">#7FE8650C</color>
+    <color name="primary_3_translucent">#7FFF4200</color>
+    <color name="primary_4_translucent">#7FE8250C</color>
+    <color name="primary_5_translucent">#7FFF0D26</color>
+
+    <color name="background_material_light">#ffeeeeee</color>
+    <color name="primary_text_default_material_light">#de000000</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
+    <color name="backgroundColor">@color/background_material_light</color>
+    <color name="textColor">@color/primary_text_default_material_light</color>
+    <color name="textColorSecondary">@color/secondary_text_default_material_light</color>
+    <color name="textColorTertiary">#60000000</color>
+
+    <style name="AppTheme" parent="AppTheme.Base" />
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="android:Theme.Material.Light">
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:colorPrimaryDark">@color/primary_5</item>
+        <item name="android:colorPrimary">@color/primary_4</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionModeBackground">@color/primary_4</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/fast_scroll_thumb</item>
+        <item name="android:fastScrollTrackDrawable">@drawable/fast_scroll_track_drawable</item>
+        <item name="android:scrollbarThumbVertical">@drawable/fast_scroll_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/fast_scroll_track_drawable</item>
+
+        <item name="android:colorEdgeEffect">@color/primary_2</item>
+        <item name="android:colorControlHighlight">@color/primary_1</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Large" parent="android:TextAppearance.Material.Large">
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Medium" parent="android:TextAppearance.Material.Medium">
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Small" parent="android:TextAppearance.Material.Small">
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.ListView">
+        <item name="android:colorEdgeEffect">@color/primary_2</item>
+    </style>
+
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Your system is up to date</string>
+    <string name="label_system_update">System update</string>
+    <string name="button_create_shortcut">Create shortcut</string>
+    <string name="button_check_system_update">Check system update</string>
+
+    <string name="msg_shortcut_installed">Shortcut is installed in your home screen.</string>
+</resources>
