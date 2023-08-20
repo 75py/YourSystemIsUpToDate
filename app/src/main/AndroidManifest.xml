@@ -12,6 +12,7 @@
         <activity
             android:name=".StartActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
