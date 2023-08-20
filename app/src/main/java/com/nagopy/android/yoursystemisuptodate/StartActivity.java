@@ -1,13 +1,10 @@
 package com.nagopy.android.yoursystemisuptodate;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class StartActivity extends Activity {
 
@@ -24,13 +21,10 @@ public class StartActivity extends Activity {
     }
 
     void startActivityIfLaunchable(Intent intent) {
-        PackageManager packageManager = getPackageManager();
-        List<ResolveInfo> result = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        if (result.isEmpty()) {
-            Toast.makeText(this, "Failed to open the system update screen.", Toast.LENGTH_SHORT).show();
-        } else {
+        try {
             startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "Failed to open the system update screen.", Toast.LENGTH_SHORT).show();
         }
     }
 }
-
