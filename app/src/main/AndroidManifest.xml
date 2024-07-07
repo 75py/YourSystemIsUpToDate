@@ -13,6 +13,7 @@
             android:name=".StartActivity"
             android:excludeFromRecents="true"
             android:exported="true"
+            android:label="@string/shortcut_label"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>

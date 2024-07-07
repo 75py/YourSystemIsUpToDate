@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">システムアップデートへのショートカット</string>
+    <string name="shortcut_label">システムアップデートへのショートカット</string>
 </resources>
