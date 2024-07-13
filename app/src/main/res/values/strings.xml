@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Your system is up to date</string>
+    <string name="app_name">Shortcut to System Update</string>
+    <string name="shortcut_label">System Update Shortcut</string>
 </resources>

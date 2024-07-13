@@ -1,6 +1,18 @@
-# YourSystemIsUpToDate
+# Shortcut to System Update
 
-Open the system update screen.
+## Description
+
+The **Shortcut to System Update** app does exactly what its name suggests: it provides a quick and easy way to access your system update settings. This saves you time and effort by eliminating the need to navigate through various menus to find the system update option.
+
+### Original Name
+
+This app was originally named **YourSystemIsUpToDate**. We decided to rename it to **Shortcut to System Update** to better reflect its primary function of providing quick access to system update settings.
+
+## Features
+
+- **Simple and Intuitive**: One-tap access to system update settings.
+- **Focused Functionality**: The app solely creates the shortcut without additional features.
+- **Humorous Twist**: Most of the time, you'll be greeted with the message, "Your system is up to date!" 😉
 
 ## Download
 
