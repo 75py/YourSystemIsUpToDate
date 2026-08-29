@@ -7,7 +7,7 @@
     android:clickable="true"
     android:contentDescription="@string/widget_initial_content_description"
     android:focusable="true"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:importantForAccessibility="yes"
     android:orientation="horizontal"
     android:paddingHorizontal="12dp"
