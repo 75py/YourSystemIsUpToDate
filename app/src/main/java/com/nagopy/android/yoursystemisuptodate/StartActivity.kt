@@ -14,6 +14,7 @@ import android.widget.Toast
 class StartActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidVersionWidgetProvider.refreshAllWidgets(this)
         openSystemUpdateSettings()
         finish()
     }

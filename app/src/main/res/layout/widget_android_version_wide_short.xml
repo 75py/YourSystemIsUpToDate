@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:clickable="true"
+    android:contentDescription="@string/widget_initial_content_description"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:importantForAccessibility="yes"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingTop="4dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/widget_android_label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/widget_android_label"
+        android:textColor="@color/widget_text_secondary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/widget_version"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/widget_text_primary"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/widget_action_background"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:paddingLeft="7dp"
+        android:paddingTop="4dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="4dp"
+        android:text="@string/widget_action"
+        android:textColor="@color/widget_accent"
+        android:textSize="11sp" />
+
+</LinearLayout>

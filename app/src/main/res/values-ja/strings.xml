@@ -2,4 +2,10 @@
     <string name="app_name">システムアップデートへのショートカット</string>
     <string name="shortcut_label">システムアップデートへのショートカット</string>
     <string name="system_update_open_failed">システムアップデート画面を開けませんでした。</string>
+    <string name="widget_name">Android バージョン</string>
+    <string name="widget_description">このデバイスの Android バージョンを表示し、システムアップデート設定を開きます。</string>
+    <string name="widget_android_label">Android</string>
+    <string name="widget_action">更新画面 ›</string>
+    <string name="widget_initial_content_description">Android バージョン。システムアップデート設定を開きます。</string>
+    <string name="widget_content_description">Android %1$s。システムアップデート設定を開きます。</string>
 </resources>
