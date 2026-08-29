@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Shortcut to System Update</string>
     <string name="shortcut_label">System Update Shortcut</string>
+    <string name="system_update_open_failed">Unable to open the system update screen.</string>
 </resources>

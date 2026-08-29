@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.nagopy.android.yoursystemisuptodate"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 3
         versionName "1.1.1"
     }
@@ -31,4 +31,5 @@ android {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
 }
