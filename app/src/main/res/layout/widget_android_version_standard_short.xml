@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     android:layout_width="match_parent"
@@ -9,44 +10,32 @@
     android:gravity="center_vertical"
     android:importantForAccessibility="yes"
     android:orientation="horizontal"
-    android:paddingLeft="8dp"
-    android:paddingTop="4dp"
-    android:paddingRight="8dp"
-    android:paddingBottom="4dp">
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="2dp">
 
     <TextView
         android:id="@+id/widget_android_label"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:importantForAccessibility="no"
         android:includeFontPadding="false"
+        android:importantForAccessibility="no"
         android:maxLines="1"
         android:text="@string/widget_android_label"
         android:textColor="@color/widget_text_secondary"
-        android:textSize="11sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/widget_version"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="6dp"
-        android:layout_weight="1"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:importantForAccessibility="no"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:textColor="@color/widget_text_primary"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/widget_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:includeFontPadding="false"
         android:importantForAccessibility="no"
-        android:visibility="gone" />
+        android:maxLines="1"
+        android:textColor="@color/widget_text_primary"
+        android:textSize="42sp" />
 
 </LinearLayout>

@@ -5,7 +5,13 @@
     <string name="widget_name">Android バージョン</string>
     <string name="widget_description">このデバイスの Android バージョンを表示し、システムアップデート設定を開きます。</string>
     <string name="widget_android_label">Android</string>
-    <string name="widget_action">更新画面 ›</string>
-    <string name="widget_initial_content_description">Android バージョン。システムアップデート設定を開きます。</string>
-    <string name="widget_content_description">Android %1$s。システムアップデート設定を開きます。</string>
+    <string name="widget_security_patch_compact_label">パッチ</string>
+    <string name="widget_build_id_label">ビルド</string>
+    <string name="widget_api_level_label">API レベル</string>
+    <string name="widget_initial_content_description">Android バージョン</string>
+    <string name="widget_accessibility_android_version">Android %1$s</string>
+    <string name="widget_accessibility_security_patch">セキュリティ パッチ %1$s</string>
+    <string name="widget_accessibility_build_id">ビルド %1$s</string>
+    <string name="widget_accessibility_api_level">API レベル %1$d</string>
+    <string name="widget_accessibility_separator">、</string>
 </resources>

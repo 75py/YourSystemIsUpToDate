@@ -8,10 +8,9 @@ class AndroidVersionWidgetLayoutTest {
     fun selectAndroidVersionWidgetLayout_coversRepresentativeDpSizes() {
         assertLayout(AndroidVersionWidgetLayout.COMPACT, widthDp = 57f, heightDp = 102f)
         assertLayout(AndroidVersionWidgetLayout.NARROW_TALL, widthDp = 57f, heightDp = 220f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 130f, heightDp = 102f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_TALL, widthDp = 130f, heightDp = 220f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 203f, heightDp = 102f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_TALL, widthDp = 203f, heightDp = 220f)
+        assertLayout(AndroidVersionWidgetLayout.NARROW_EXTRA_TALL, widthDp = 57f, heightDp = 337f)
+        assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 180f, heightDp = 102f)
+        assertLayout(AndroidVersionWidgetLayout.STANDARD_TALL, widthDp = 180f, heightDp = 220f)
         assertLayout(AndroidVersionWidgetLayout.WIDE_SHORT, widthDp = 260f, heightDp = 102f)
         assertLayout(AndroidVersionWidgetLayout.LARGE, widthDp = 260f, heightDp = 220f)
     }
@@ -20,8 +19,6 @@ class AndroidVersionWidgetLayoutTest {
     fun selectAndroidVersionWidgetLayout_switchesAtExactWidthBoundaries() {
         assertLayout(AndroidVersionWidgetLayout.COMPACT, widthDp = 99.99f, heightDp = 109.99f)
         assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 100f, heightDp = 109.99f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 179.99f, heightDp = 109.99f)
-        assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 180f, heightDp = 109.99f)
         assertLayout(AndroidVersionWidgetLayout.STANDARD_SHORT, widthDp = 219.99f, heightDp = 109.99f)
         assertLayout(AndroidVersionWidgetLayout.WIDE_SHORT, widthDp = 220f, heightDp = 109.99f)
     }
@@ -32,6 +29,12 @@ class AndroidVersionWidgetLayoutTest {
         assertLayout(AndroidVersionWidgetLayout.STANDARD_TALL, widthDp = 100f, heightDp = 110f)
         assertLayout(AndroidVersionWidgetLayout.STANDARD_TALL, widthDp = 180f, heightDp = 110f)
         assertLayout(AndroidVersionWidgetLayout.LARGE, widthDp = 220f, heightDp = 110f)
+    }
+
+    @Test
+    fun selectAndroidVersionWidgetLayout_switchesAtExactNarrowExtraTallBoundary() {
+        assertLayout(AndroidVersionWidgetLayout.NARROW_TALL, widthDp = 99.99f, heightDp = 279.99f)
+        assertLayout(AndroidVersionWidgetLayout.NARROW_EXTRA_TALL, widthDp = 99.99f, heightDp = 280f)
     }
 
     @Test

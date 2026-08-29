@@ -3,6 +3,4 @@
     <color name="widget_background_pressed">#FF303947</color>
     <color name="widget_text_primary">#FFF2F5FA</color>
     <color name="widget_text_secondary">#FFC4CCDA</color>
-    <color name="widget_accent">#FFA8C7FA</color>
-    <color name="widget_action_background">#FF334A6D</color>
 </resources>

@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.SizeF
+import android.view.View
 import android.widget.RemoteViews
 import kotlin.math.max
 import kotlin.math.min
@@ -61,15 +62,15 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             appWidgetId: Int,
             suppliedOptions: Bundle? = null,
         ) {
-            val version = currentAndroidVersionDisplay()
+            val data = currentAndroidVersionWidgetData()
             val tapIntent = createTapIntent(context, appWidgetId)
             val remoteViews = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                createResponsiveRemoteViews(context, version, tapIntent)
+                createResponsiveRemoteViews(context, data, tapIntent)
             } else {
                 createLegacyRemoteViews(
                     context = context,
                     options = suppliedOptions ?: appWidgetManager.getAppWidgetOptions(appWidgetId),
-                    version = version,
+                    data = data,
                     tapIntent = tapIntent,
                 )
             }
@@ -78,7 +79,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
 
         private fun createResponsiveRemoteViews(
             context: Context,
-            version: String,
+            data: AndroidVersionWidgetData,
             tapIntent: PendingIntent,
         ): RemoteViews {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
@@ -88,49 +89,73 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 SizeF(MIN_WIDGET_WIDTH_DP, MIN_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.COMPACT,
-                    version,
+                    data,
                     tapIntent,
                 ),
                 SizeF(MIN_WIDGET_WIDTH_DP, TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.NARROW_TALL,
-                    version,
+                    data,
+                    tapIntent,
+                ),
+                SizeF(MIN_WIDGET_WIDTH_DP, EXTRA_TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
+                    context,
+                    AndroidVersionWidgetLayout.NARROW_EXTRA_TALL,
+                    data,
                     tapIntent,
                 ),
                 SizeF(STANDARD_WIDGET_WIDTH_DP, MIN_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.STANDARD_SHORT,
-                    version,
+                    data,
                     tapIntent,
                 ),
                 SizeF(STANDARD_WIDGET_WIDTH_DP, TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.STANDARD_TALL,
-                    version,
+                    data,
+                    tapIntent,
+                ),
+                SizeF(STANDARD_WIDGET_WIDTH_DP, EXTRA_TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
+                    context,
+                    AndroidVersionWidgetLayout.STANDARD_TALL,
+                    data,
                     tapIntent,
                 ),
                 SizeF(TWO_COLUMN_WIDGET_WIDTH_DP, MIN_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.STANDARD_SHORT,
-                    version,
+                    data,
                     tapIntent,
                 ),
                 SizeF(TWO_COLUMN_WIDGET_WIDTH_DP, TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.STANDARD_TALL,
-                    version,
+                    data,
+                    tapIntent,
+                ),
+                SizeF(TWO_COLUMN_WIDGET_WIDTH_DP, EXTRA_TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
+                    context,
+                    AndroidVersionWidgetLayout.STANDARD_TALL,
+                    data,
                     tapIntent,
                 ),
                 SizeF(WIDE_WIDGET_WIDTH_DP, MIN_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.WIDE_SHORT,
-                    version,
+                    data,
                     tapIntent,
                 ),
                 SizeF(LARGE_WIDGET_WIDTH_DP, TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
                     AndroidVersionWidgetLayout.LARGE,
-                    version,
+                    data,
+                    tapIntent,
+                ),
+                SizeF(LARGE_WIDGET_WIDTH_DP, EXTRA_TALL_WIDGET_HEIGHT_DP) to createRemoteViews(
+                    context,
+                    AndroidVersionWidgetLayout.LARGE,
+                    data,
                     tapIntent,
                 ),
             )
@@ -140,7 +165,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         private fun createLegacyRemoteViews(
             context: Context,
             options: Bundle,
-            version: String,
+            data: AndroidVersionWidgetData,
             tapIntent: PendingIntent,
         ): RemoteViews {
             val minWidth = options.positiveDp(
@@ -166,7 +191,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                     widthDp = min(minWidth, maxWidth),
                     heightDp = max(minHeight, maxHeight),
                 ),
-                version,
+                data,
                 tapIntent,
             )
             val landscape = createRemoteViews(
@@ -175,7 +200,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                     widthDp = max(minWidth, maxWidth),
                     heightDp = min(minHeight, maxHeight),
                 ),
-                version,
+                data,
                 tapIntent,
             )
             return RemoteViews(landscape, portrait)
@@ -184,14 +209,15 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         private fun createRemoteViews(
             context: Context,
             layout: AndroidVersionWidgetLayout,
-            version: String,
+            data: AndroidVersionWidgetData,
             tapIntent: PendingIntent,
         ): RemoteViews = RemoteViews(context.packageName, layout.layoutResource).apply {
-            setTextViewText(R.id.widget_version, version)
-            setTextViewText(R.id.widget_action, context.getText(R.string.widget_action))
+            val content = selectAndroidVersionWidgetContent(data, layout)
+            setTextViewText(R.id.widget_version, content.version)
+            configureMetadata(layout, content)
             setContentDescription(
                 android.R.id.background,
-                context.getString(R.string.widget_content_description, version),
+                buildAccessibilityDescription(context, content),
             )
             setOnClickPendingIntent(android.R.id.background, tapIntent)
         }
@@ -202,6 +228,9 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 AndroidVersionWidgetLayout.NARROW_TALL -> {
                     R.layout.widget_android_version_narrow_tall
                 }
+                AndroidVersionWidgetLayout.NARROW_EXTRA_TALL -> {
+                    R.layout.widget_android_version_narrow_extra_tall
+                }
                 AndroidVersionWidgetLayout.STANDARD_SHORT -> {
                     R.layout.widget_android_version_standard_short
                 }
@@ -211,6 +240,127 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 AndroidVersionWidgetLayout.WIDE_SHORT -> R.layout.widget_android_version_wide_short
                 AndroidVersionWidgetLayout.LARGE -> R.layout.widget_android_version_large
             }
+
+        private fun RemoteViews.configureMetadata(
+            layout: AndroidVersionWidgetLayout,
+            content: AndroidVersionWidgetContent,
+        ) {
+            when (layout) {
+                AndroidVersionWidgetLayout.COMPACT,
+                AndroidVersionWidgetLayout.STANDARD_SHORT,
+                -> Unit
+
+                AndroidVersionWidgetLayout.NARROW_TALL -> {
+                    setOptionalText(
+                        R.id.widget_security_patch_group,
+                        R.id.widget_security_patch,
+                        content.securityPatch,
+                    )
+                }
+
+                AndroidVersionWidgetLayout.NARROW_EXTRA_TALL -> {
+                    setMetadataContainerVisibility(
+                        content.securityPatch != null || content.apiLevel != null,
+                    )
+                    setOptionalText(
+                        R.id.widget_security_patch_group,
+                        R.id.widget_security_patch,
+                        content.securityPatch,
+                    )
+                    setOptionalText(
+                        R.id.widget_api_level_group,
+                        R.id.widget_api_level,
+                        content.apiLevel?.toString(),
+                    )
+                }
+
+                AndroidVersionWidgetLayout.STANDARD_TALL,
+                AndroidVersionWidgetLayout.WIDE_SHORT,
+                -> {
+                    setMetadataContainerVisibility(
+                        content.securityPatch != null || content.buildId != null,
+                    )
+                    setOptionalText(
+                        R.id.widget_security_patch_group,
+                        R.id.widget_security_patch,
+                        content.securityPatch,
+                    )
+                    setOptionalText(
+                        R.id.widget_build_id_group,
+                        R.id.widget_build_id,
+                        content.buildId,
+                    )
+                }
+
+                AndroidVersionWidgetLayout.LARGE -> {
+                    setMetadataContainerVisibility(
+                        content.securityPatch != null ||
+                            content.buildId != null ||
+                            content.apiLevel != null,
+                    )
+                    setOptionalText(
+                        R.id.widget_security_patch_group,
+                        R.id.widget_security_patch,
+                        content.securityPatch,
+                    )
+                    setOptionalText(
+                        R.id.widget_build_id_group,
+                        R.id.widget_build_id,
+                        content.buildId,
+                    )
+                    setOptionalText(
+                        R.id.widget_api_level_group,
+                        R.id.widget_api_level,
+                        content.apiLevel?.toString(),
+                    )
+                }
+            }
+        }
+
+        private fun RemoteViews.setMetadataContainerVisibility(visible: Boolean) {
+            setViewVisibility(R.id.widget_metadata, if (visible) View.VISIBLE else View.GONE)
+        }
+
+        private fun RemoteViews.setOptionalText(
+            groupId: Int,
+            valueId: Int,
+            value: String?,
+        ) {
+            setViewVisibility(groupId, if (value != null) View.VISIBLE else View.GONE)
+            if (value != null) {
+                setTextViewText(valueId, value)
+            }
+        }
+
+        private fun buildAccessibilityDescription(
+            context: Context,
+            content: AndroidVersionWidgetContent,
+        ): String = buildList {
+            add(context.getString(R.string.widget_accessibility_android_version, content.version))
+            content.securityPatch?.let {
+                add(context.getString(R.string.widget_accessibility_security_patch, it))
+            }
+            content.buildId?.let {
+                add(context.getString(R.string.widget_accessibility_build_id, it))
+            }
+            content.apiLevel?.let {
+                add(context.getString(R.string.widget_accessibility_api_level, it))
+            }
+        }.joinToString(context.getString(R.string.widget_accessibility_separator))
+
+        private fun currentAndroidVersionWidgetData(): AndroidVersionWidgetData {
+            val securityPatch = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Build.VERSION.SECURITY_PATCH
+            } else {
+                null
+            }
+            return createAndroidVersionWidgetData(
+                sdkInt = Build.VERSION.SDK_INT,
+                version = currentAndroidVersionDisplay(),
+                securityPatch = securityPatch,
+                buildId = Build.ID,
+            )
+        }
 
         private fun createTapIntent(context: Context, appWidgetId: Int): PendingIntent {
             val intent = Intent(context, StartActivity::class.java).apply {

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     android:layout_width="match_parent"
@@ -9,34 +10,33 @@
     android:gravity="center"
     android:importantForAccessibility="yes"
     android:orientation="vertical"
-    android:padding="6dp">
+    android:paddingHorizontal="0dp"
+    android:paddingVertical="2dp">
 
     <TextView
         android:id="@+id/widget_android_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="false"
         android:importantForAccessibility="no"
+        android:maxLines="1"
         android:text="@string/widget_android_label"
-        android:visibility="gone" />
+        android:textColor="@color/widget_text_secondary"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/widget_version"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:importantForAccessibility="no"
         android:includeFontPadding="false"
+        android:importantForAccessibility="no"
         android:maxLines="1"
         android:textColor="@color/widget_text_primary"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/widget_action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:visibility="gone" />
+        android:textSize="39sp" />
 
 </LinearLayout>

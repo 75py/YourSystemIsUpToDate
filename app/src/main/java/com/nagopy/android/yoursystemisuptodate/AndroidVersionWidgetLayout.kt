@@ -7,12 +7,14 @@ internal const val TWO_COLUMN_WIDGET_WIDTH_DP = 180f
 internal const val WIDE_WIDGET_WIDTH_DP = 220f
 internal const val LARGE_WIDGET_WIDTH_DP = 220f
 internal const val TALL_WIDGET_HEIGHT_DP = 110f
+internal const val EXTRA_TALL_WIDGET_HEIGHT_DP = 280f
 internal const val DEFAULT_WIDGET_WIDTH_DP = 110f
 internal const val DEFAULT_WIDGET_HEIGHT_DP = 40f
 
 internal enum class AndroidVersionWidgetLayout {
     COMPACT,
     NARROW_TALL,
+    NARROW_EXTRA_TALL,
     STANDARD_SHORT,
     STANDARD_TALL,
     WIDE_SHORT,
@@ -26,7 +28,10 @@ internal fun selectAndroidVersionWidgetLayout(
     widthDp < STANDARD_WIDGET_WIDTH_DP && heightDp < TALL_WIDGET_HEIGHT_DP -> {
         AndroidVersionWidgetLayout.COMPACT
     }
-    widthDp < STANDARD_WIDGET_WIDTH_DP -> AndroidVersionWidgetLayout.NARROW_TALL
+    widthDp < STANDARD_WIDGET_WIDTH_DP && heightDp < EXTRA_TALL_WIDGET_HEIGHT_DP -> {
+        AndroidVersionWidgetLayout.NARROW_TALL
+    }
+    widthDp < STANDARD_WIDGET_WIDTH_DP -> AndroidVersionWidgetLayout.NARROW_EXTRA_TALL
     widthDp < WIDE_WIDGET_WIDTH_DP && heightDp < TALL_WIDGET_HEIGHT_DP -> {
         AndroidVersionWidgetLayout.STANDARD_SHORT
     }

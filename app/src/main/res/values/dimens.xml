@@ -1,4 +1,3 @@
 <resources>
     <dimen name="widget_corner_radius">16dp</dimen>
-    <dimen name="widget_action_corner_radius">12dp</dimen>
 </resources>
