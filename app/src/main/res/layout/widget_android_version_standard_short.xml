@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:clickable="true"
+    android:contentDescription="@string/widget_initial_content_description"
+    android:focusable="true"
+    android:gravity="center"
+    android:importantForAccessibility="yes"
+    android:orientation="horizontal"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="2dp">
+
+    <TextView
+        android:id="@+id/widget_android_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:text="@string/widget_android_label"
+        android:textColor="@color/widget_text_secondary"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/widget_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:includeFontPadding="false"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:textColor="@color/widget_text_primary"
+        android:textSize="42sp" />
+
+</LinearLayout>
