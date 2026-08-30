@@ -335,18 +335,23 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         private fun buildAccessibilityDescription(
             context: Context,
             content: AndroidVersionWidgetContent,
-        ): String = buildList {
-            add(context.getString(R.string.widget_accessibility_android_version, content.version))
-            content.securityPatch?.let {
-                add(context.getString(R.string.widget_accessibility_security_patch, it))
-            }
-            content.buildId?.let {
-                add(context.getString(R.string.widget_accessibility_build_id, it))
-            }
-            content.apiLevel?.let {
-                add(context.getString(R.string.widget_accessibility_api_level, it))
-            }
-        }.joinToString(context.getString(R.string.widget_accessibility_separator))
+        ): String = buildAndroidVersionWidgetAccessibilityDescription(
+            androidVersion = context.getString(
+                R.string.widget_accessibility_android_version,
+                content.version,
+            ),
+            securityPatch = content.securityPatch?.let {
+                context.getString(R.string.widget_accessibility_security_patch, it)
+            },
+            buildId = content.buildId?.let {
+                context.getString(R.string.widget_accessibility_build_id, it)
+            },
+            apiLevel = content.apiLevel?.let {
+                context.getString(R.string.widget_accessibility_api_level, it)
+            },
+            action = context.getString(R.string.widget_accessibility_open_system_update),
+            separator = context.getString(R.string.widget_accessibility_separator),
+        )
 
         private fun currentAndroidVersionWidgetData(): AndroidVersionWidgetData {
             val securityPatch = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -384,3 +389,18 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             getInt(key).takeIf { it > 0 }?.toFloat() ?: fallback
     }
 }
+
+internal fun buildAndroidVersionWidgetAccessibilityDescription(
+    androidVersion: String,
+    securityPatch: String?,
+    buildId: String?,
+    apiLevel: String?,
+    action: String,
+    separator: String,
+): String = listOfNotNull(
+    androidVersion,
+    securityPatch,
+    buildId,
+    apiLevel,
+    action,
+).joinToString(separator)

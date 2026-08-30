@@ -8,10 +8,11 @@
     <string name="widget_security_patch_compact_label">Patch</string>
     <string name="widget_build_id_label">Build</string>
     <string name="widget_api_level_label">API level</string>
-    <string name="widget_initial_content_description">Android version</string>
+    <string name="widget_initial_content_description">Android version. Opens system update settings</string>
     <string name="widget_accessibility_android_version">Android %1$s</string>
     <string name="widget_accessibility_security_patch">Security patch %1$s</string>
     <string name="widget_accessibility_build_id">Build %1$s</string>
     <string name="widget_accessibility_api_level">API level %1$d</string>
+    <string name="widget_accessibility_open_system_update">Opens system update settings</string>
     <string name="widget_accessibility_separator">.\u0020</string>
 </resources>

@@ -8,10 +8,11 @@
     <string name="widget_security_patch_compact_label">パッチ</string>
     <string name="widget_build_id_label">ビルド</string>
     <string name="widget_api_level_label">API レベル</string>
-    <string name="widget_initial_content_description">Android バージョン</string>
+    <string name="widget_initial_content_description">Android バージョン、システム アップデート設定を開きます</string>
     <string name="widget_accessibility_android_version">Android %1$s</string>
     <string name="widget_accessibility_security_patch">セキュリティ パッチ %1$s</string>
     <string name="widget_accessibility_build_id">ビルド %1$s</string>
     <string name="widget_accessibility_api_level">API レベル %1$d</string>
+    <string name="widget_accessibility_open_system_update">システム アップデート設定を開きます</string>
     <string name="widget_accessibility_separator">、</string>
 </resources>
