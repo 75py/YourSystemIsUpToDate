@@ -15,4 +15,18 @@
     <string name="widget_accessibility_api_level">API レベル %1$d</string>
     <string name="widget_accessibility_open_system_update">システム アップデート設定を開きます</string>
     <string name="widget_accessibility_separator">、</string>
+    <string name="system_update_label">OS更新</string>
+    <string name="play_update_label">Google Playシステム更新</string>
+    <string name="play_shortcut_short_label">Play更新</string>
+    <string name="play_update_open_failed">Google Playシステム更新を開けませんでした。この端末またはGoogle Playのバージョンでは対応していない可能性があります。</string>
+    <string name="update_settings_title">更新情報</string>
+    <string name="play_update_unknown">取得できません</string>
+    <string name="play_update_installed_version">Google Playシステム更新：%1$s</string>
+    <string name="play_update_level_description">日付は導入済み更新の水準を示します。インストールした日付や、新しい更新の有無を示すものではありません。</string>
+    <string name="open_play_update">Google Playシステム更新を開く</string>
+    <string name="pin_play_shortcut">Play更新のショートカットをホーム画面に追加</string>
+    <string name="pin_shortcut_unavailable">このホームアプリではショートカットを追加できません。</string>
+    <string name="play_widget_label">Google Play</string>
+    <string name="play_widget_description">導入済みのGoogle Playシステム更新の日付を表示します。タップすると更新画面を開きます。</string>
+    <string name="play_widget_accessibility">Google Playシステム更新：%1$s。タップするとGoogle Playシステム更新の設定を開きます。</string>
 </resources>

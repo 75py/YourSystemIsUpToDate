@@ -1,0 +1,24 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="system_update"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:shortcutShortLabel="@string/system_update_label">
+        <intent android:action="com.nagopy.android.yoursystemisuptodate.action.OPEN_SYSTEM_UPDATE"
+            android:targetPackage="com.nagopy.android.yoursystemisuptodate"
+            android:targetClass="com.nagopy.android.yoursystemisuptodate.StartActivity" />
+    </shortcut>
+    <shortcut android:shortcutId="play_update"
+        android:icon="@drawable/ic_play_update"
+        android:shortcutShortLabel="@string/play_shortcut_short_label"
+        android:shortcutLongLabel="@string/play_update_label">
+        <intent android:action="com.nagopy.android.yoursystemisuptodate.action.OPEN_PLAY_UPDATE"
+            android:targetPackage="com.nagopy.android.yoursystemisuptodate"
+            android:targetClass="com.nagopy.android.yoursystemisuptodate.StartActivity" />
+    </shortcut>
+    <shortcut android:shortcutId="update_settings"
+        android:icon="@drawable/ic_shortcut_settings"
+        android:shortcutShortLabel="@string/update_settings_title">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.nagopy.android.yoursystemisuptodate"
+            android:targetClass="com.nagopy.android.yoursystemisuptodate.UpdateSettingsActivity" />
+    </shortcut>
+</shortcuts>

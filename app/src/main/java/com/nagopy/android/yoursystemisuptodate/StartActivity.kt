@@ -15,7 +15,13 @@ class StartActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidVersionWidgetProvider.refreshAllWidgets(this)
-        openSystemUpdateSettings()
+        GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
+        when (resolveUpdateTarget(intent.action, intent.component?.className == PLAY_LAUNCHER_CLASS)) {
+            UpdateTarget.SYSTEM -> openSystemUpdateSettings()
+            UpdateTarget.GOOGLE_PLAY -> if (!GooglePlaySystemUpdate.open(this)) {
+                Toast.makeText(this, R.string.play_update_open_failed, Toast.LENGTH_LONG).show()
+            }
+        }
         finish()
     }
 

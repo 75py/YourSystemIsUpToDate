@@ -15,4 +15,18 @@
     <string name="widget_accessibility_api_level">API level %1$d</string>
     <string name="widget_accessibility_open_system_update">Opens system update settings</string>
     <string name="widget_accessibility_separator">.\u0020</string>
+    <string name="system_update_label">OS update</string>
+    <string name="play_update_label">Google Play system update</string>
+    <string name="play_shortcut_short_label">Play update</string>
+    <string name="play_update_open_failed">Unable to open Google Play system update. This device or Google Play version may not support the shortcut.</string>
+    <string name="update_settings_title">Update information</string>
+    <string name="play_update_unknown">Unavailable</string>
+    <string name="play_update_installed_version">Google Play system update: %1$s</string>
+    <string name="play_update_level_description">The date identifies the installed update level, not when you installed it. It does not indicate whether a newer update is available.</string>
+    <string name="open_play_update">Open Google Play system update</string>
+    <string name="pin_play_shortcut">Add Play update shortcut to Home screen</string>
+    <string name="pin_shortcut_unavailable">This launcher cannot add the shortcut.</string>
+    <string name="play_widget_label">Google Play</string>
+    <string name="play_widget_description">Shows the installed Google Play system update level. Tap to open its update settings.</string>
+    <string name="play_widget_accessibility">Google Play system update: %1$s. Opens Google Play system update settings.</string>
 </resources>

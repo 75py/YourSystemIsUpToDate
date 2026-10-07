@@ -4,6 +4,7 @@
         <intent>
             <action android:name="android.settings.SYSTEM_UPDATE_SETTINGS" />
         </intent>
+        <package android:name="com.google.android.modulemetadata" />
     </queries>
 
     <application
@@ -28,7 +29,29 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
+
+        <activity-alias
+            android:name=".GooglePlayUpdateLauncher"
+            android:enabled="@bool/google_play_update_supported"
+            android:exported="true"
+            android:icon="@drawable/ic_play_update"
+            android:label="@string/play_update_label"
+            android:targetActivity=".StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name=".UpdateSettingsActivity"
+            android:exported="true"
+            android:label="@string/update_settings_title"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
 
         <receiver
             android:name=".AndroidVersionWidgetProvider"
@@ -40,6 +63,18 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/android_version_widget_info" />
+        </receiver>
+        <receiver
+            android:name=".GooglePlayUpdateWidgetProvider"
+            android:enabled="@bool/google_play_update_supported"
+            android:exported="false"
+            android:label="@string/play_update_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/google_play_update_widget_info" />
         </receiver>
     </application>
 
