@@ -1,7 +1,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/play_widget_description"
     android:initialLayout="@layout/widget_google_play_update"
-    android:previewLayout="@layout/widget_google_play_update"
+    android:previewLayout="@layout/widget_google_play_update_preview"
     android:targetCellWidth="2"
     android:targetCellHeight="1"
     android:minWidth="110dp"

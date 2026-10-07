@@ -27,6 +27,7 @@
     <string name="pin_play_shortcut">Add Play update shortcut to Home screen</string>
     <string name="pin_shortcut_unavailable">This launcher cannot add the shortcut.</string>
     <string name="play_widget_label">Google Play</string>
+    <string name="play_widget_preview_version" translatable="false">2026-01-01</string>
     <string name="play_widget_description">Shows the installed Google Play system update level. Tap to open its update settings.</string>
     <string name="play_widget_accessibility">Google Play system update: %1$s. Opens Google Play system update settings.</string>
 </resources>
