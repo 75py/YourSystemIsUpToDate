@@ -49,9 +49,10 @@
 
         <activity
             android:name=".UpdateSettingsActivity"
+            android:enabled="@bool/google_play_update_supported"
             android:exported="true"
             android:label="@string/update_settings_title"
-            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+            android:theme="@style/UpdateSettingsTheme" />
 
         <receiver
             android:name=".AndroidVersionWidgetProvider"

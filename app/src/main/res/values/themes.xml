@@ -1,0 +1,3 @@
+<resources>
+    <style name="UpdateSettingsTheme" parent="@android:style/Theme.Material.Light.NoActionBar" />
+</resources>

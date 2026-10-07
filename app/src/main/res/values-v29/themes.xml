@@ -1,0 +1,12 @@
+<resources>
+    <!-- Android 15 draws the window behind transparent system bars, so the bar icons
+         must follow the day/night background instead of the theme default (light icons). -->
+    <style name="UpdateSettingsTheme" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor">?android:attr/colorBackground</item>
+        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
+        <item name="android:windowLightStatusBar">@bool/update_settings_light_system_bars</item>
+        <item name="android:windowLightNavigationBar">@bool/update_settings_light_system_bars</item>
+    </style>
+</resources>
