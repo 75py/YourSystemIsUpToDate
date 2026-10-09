@@ -26,7 +26,9 @@ class StartActivity : Activity() {
     }
 
     private fun openSystemUpdateSettings() {
-        val intent = Intent(ACTION_SYSTEM_UPDATE_SETTINGS)
+        // Keep the settings screen out of this app's task. Both launcher icons share that
+        // task, so a later tap on either would resume it instead of running this activity.
+        val intent = Intent(ACTION_SYSTEM_UPDATE_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
             intent.component = findSystemUpdateActivity(intent) ?: run {
                 showOpenFailure()

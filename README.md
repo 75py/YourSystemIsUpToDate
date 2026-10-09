@@ -58,6 +58,8 @@ Before release, check on a Google Play-enabled device:
 - Upgrade with an existing Android widget: it still opens OS update settings.
 - Check both launcher icons: the original opens OS update and the new icon opens
   Play update, with no chooser. Confirm both belong to the same installed app.
+- Tap the icons alternately, pressing Home in between and after opening **Update
+  information**: each icon must still open its own screen.
 - Pin the Play shortcut and place both widget types; each opens its own destination.
 - Compare the Play widget date with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.

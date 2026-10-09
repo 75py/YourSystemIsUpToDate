@@ -52,6 +52,7 @@
             android:enabled="@bool/google_play_update_supported"
             android:exported="true"
             android:label="@string/update_settings_title"
+            android:taskAffinity="com.nagopy.android.yoursystemisuptodate.updatesettings"
             android:theme="@style/UpdateSettingsTheme" />
 
         <receiver
