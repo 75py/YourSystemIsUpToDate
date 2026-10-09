@@ -24,7 +24,7 @@
         android:textColor="@color/widget_text_secondary"
         android:textSize="14sp"
         android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMinTextSize="6sp"
         android:autoSizeMaxTextSize="14sp"
         android:autoSizeStepGranularity="1sp"
         tools:targetApi="o" />
@@ -43,7 +43,7 @@
         android:textColor="@color/widget_text_primary"
         android:textSize="18sp"
         android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="11sp"
+        android:autoSizeMinTextSize="6sp"
         android:autoSizeMaxTextSize="18sp"
         android:autoSizeStepGranularity="1sp"
         tools:targetApi="o" />

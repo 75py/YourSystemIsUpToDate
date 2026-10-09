@@ -1,5 +1,6 @@
 <!-- The two lines share the height 14:18 and shrink to fit, so a short cell or a large
-     system font does not clip the date. -->
+     system font does not clip the date. The lower bounds are sp and grow with the font
+     scale, so they are low enough for the 110x48dp minimum at 200%. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/background"
@@ -27,7 +28,7 @@
         android:textColor="@color/widget_text_secondary"
         android:textSize="14sp"
         android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMinTextSize="6sp"
         android:autoSizeMaxTextSize="14sp"
         android:autoSizeStepGranularity="1sp"
         tools:targetApi="o" />
@@ -46,7 +47,7 @@
         android:textColor="@color/widget_text_primary"
         android:textSize="18sp"
         android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="11sp"
+        android:autoSizeMinTextSize="6sp"
         android:autoSizeMaxTextSize="18sp"
         android:autoSizeStepGranularity="1sp"
         tools:targetApi="o" />
