@@ -1,4 +1,7 @@
+<!-- The two lines share the height 14:18 and shrink to fit, so a short cell or a large
+     system font does not clip the date. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,32 +10,44 @@
     android:focusable="true"
     android:importantForAccessibility="yes"
     android:contentDescription="@string/play_widget_description"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="6dp">
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="2dp">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:gravity="bottom|center_horizontal"
         android:importantForAccessibility="no"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:ellipsize="end"
         android:text="@string/play_widget_label"
         android:textColor="@color/widget_text_secondary"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="14sp"
+        android:autoSizeStepGranularity="1sp"
+        tools:targetApi="o" />
 
     <TextView
         android:id="@+id/play_widget_version"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:gravity="top|center_horizontal"
         android:importantForAccessibility="no"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:ellipsize="end"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/widget_text_primary"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="11sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
+        tools:targetApi="o" />
 </LinearLayout>

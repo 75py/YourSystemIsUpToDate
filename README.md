@@ -30,8 +30,9 @@ screen, or use **Update information → Add Play update shortcut to Home screen*
 Add **Google Play system update** from the launcher’s widget picker to display the
 installed update level. It can coexist with the existing Android version widget;
 each widget always opens its respective update screen.
-The Google Play widget refreshes approximately every six hours (subject to Android
-scheduling), and when the app or its settings are opened. Tap it to check for updates.
+A Google Play system update takes effect when the device restarts, so the widget
+refreshes after a restart and whenever the app or its settings are opened. Tap it to
+check for updates.
 
 The date is read from `com.google.android.modulemetadata`’s `versionName`, following
 [Google’s documented Mainline version lookup](https://developers.google.com/android/work/security-posture-signals#retrieve_mainline_version).
