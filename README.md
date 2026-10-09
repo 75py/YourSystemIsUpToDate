@@ -39,8 +39,8 @@ The date is read from `com.google.android.modulemetadata`’s `versionName`, fol
 Devices that declare AOSP’s `com.android.modulemetadata` as the provider are read from
 that package instead.
 It identifies the installed update level, not the installation time or whether an
-update is available. Month-only values stay month-only. Missing metadata is shown as
-“Unavailable”; unrecognized version formats are preserved.
+update is available. The version name is shown as it is; missing metadata is shown as
+“Unavailable”.
 
 The shortcut tries `MODULE_UPDATE_VERSIONS`, then `MODULE_UPDATE_SETTINGS`, limited
 to the Google Play Store package. These are not guaranteed public SDK actions, so
