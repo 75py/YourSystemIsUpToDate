@@ -5,14 +5,12 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.TimeZone
 
-internal fun normalizeMainlineVersion(value: String?): String? = value
-    ?.trim()
-    ?.takeUnless { it.isEmpty() || it.equals("unknown", ignoreCase = true) }
-
 // Keep month-only precision. Never turn the metadata package's install timestamp into
 // an update level, and preserve unrecognized version names rather than inventing a date.
 internal fun mainlineVersionDisplay(version: String?): String? {
-    val value = normalizeMainlineVersion(version) ?: return null
+    val value = version?.trim()
+        ?.takeUnless { it.isEmpty() || it.equals("unknown", ignoreCase = true) }
+        ?: return null
     val match = MAINLINE_DATE_PREFIX.matchEntire(value) ?: return value
     val date = match.groupValues[1]
     val pattern = if (date.length == 10) "yyyy-MM-dd" else "yyyy-MM"

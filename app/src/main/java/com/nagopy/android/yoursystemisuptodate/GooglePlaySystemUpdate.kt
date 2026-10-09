@@ -1,27 +1,36 @@
 package com.nagopy.android.yoursystemisuptodate
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.os.Build
 
 internal object GooglePlaySystemUpdate {
-    private const val METADATA_PACKAGE = "com.google.android.modulemetadata"
     private const val PLAY_STORE_PACKAGE = "com.android.vending"
 
     @Suppress("DEPRECATION")
     fun version(context: Context): String? {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return null
-        return try {
-            normalizeMainlineVersion(
-                context.packageManager.getPackageInfo(METADATA_PACKAGE, 0).versionName,
-            )
-        } catch (_: PackageManager.NameNotFoundException) {
-            null
-        } catch (_: SecurityException) {
-            null
+        for (packageName in moduleMetadataPackages(configuredMetadataProvider())) {
+            try {
+                return context.packageManager.getPackageInfo(packageName, 0).versionName
+            } catch (_: PackageManager.NameNotFoundException) {
+                // Try the next candidate.
+            } catch (_: SecurityException) {
+                // Try the next candidate.
+            }
         }
+        return null
+    }
+
+    // Settings reads the provider from this framework config, which is not a public resource.
+    @SuppressLint("DiscouragedApi")
+    private fun configuredMetadataProvider(): String? {
+        val resources = Resources.getSystem()
+        val id = resources.getIdentifier("config_defaultModuleMetadataProvider", "string", "android")
+        return if (id != 0) resources.getString(id) else null
     }
 
     // These actions are used by AOSP Settings but are not guaranteed public SDK APIs.
@@ -47,3 +56,14 @@ internal object GooglePlaySystemUpdate {
         return false
     }
 }
+
+private val KNOWN_METADATA_PACKAGES = listOf(
+    "com.google.android.modulemetadata",
+    "com.android.modulemetadata",
+)
+
+// Prefer the provider the device declares. Only the known packages are listed in the
+// manifest's <queries>, so any other provider stays invisible on Android 11 and later.
+internal fun moduleMetadataPackages(configuredProvider: String?): List<String> =
+    (listOfNotNull(configuredProvider?.trim()?.takeUnless { it.isEmpty() }) +
+        KNOWN_METADATA_PACKAGES).distinct()

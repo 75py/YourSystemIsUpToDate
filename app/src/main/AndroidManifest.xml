@@ -5,6 +5,7 @@
             <action android:name="android.settings.SYSTEM_UPDATE_SETTINGS" />
         </intent>
         <package android:name="com.google.android.modulemetadata" />
+        <package android:name="com.android.modulemetadata" />
     </queries>
 
     <application

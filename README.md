@@ -35,6 +35,8 @@ scheduling), and when the app or its settings are opened. Tap it to check for up
 
 The date is read from `com.google.android.modulemetadata`’s `versionName`, following
 [Google’s documented Mainline version lookup](https://developers.google.com/android/work/security-posture-signals#retrieve_mainline_version).
+Devices that declare AOSP’s `com.android.modulemetadata` as the provider are read from
+that package instead.
 It identifies the installed update level, not the installation time or whether an
 update is available. Month-only values stay month-only. Missing metadata is shown as
 “Unavailable”; unrecognized version formats are preserved.
