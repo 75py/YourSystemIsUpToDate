@@ -1,10 +1,10 @@
 package com.nagopy.android.yoursystemisuptodate
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
-import android.graphics.drawable.Icon
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
@@ -13,6 +13,8 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 
+// The manifest enables this activity on Android 10 and later only.
+@TargetApi(Build.VERSION_CODES.Q)
 class UpdateSettingsActivity : Activity() {
     private lateinit var versionView: TextView
 
@@ -49,27 +51,20 @@ class UpdateSettingsActivity : Activity() {
                     .setAction(ACTION_OPEN_PLAY_UPDATE))
             }
         })
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val manager = getSystemService(ShortcutManager::class.java)
-            if (manager?.isRequestPinShortcutSupported == true &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                content.addView(Button(this).apply {
-                    setText(R.string.pin_play_shortcut)
-                    setOnClickListener {
-                        val shortcut = ShortcutInfo.Builder(this@UpdateSettingsActivity, "play_update_pinned")
-                            .setShortLabel(getString(R.string.play_shortcut_short_label))
-                            .setLongLabel(getString(R.string.play_update_label))
-                            .setIcon(Icon.createWithResource(this@UpdateSettingsActivity, R.drawable.ic_play_update))
-                            .setIntent(Intent(this@UpdateSettingsActivity, StartActivity::class.java)
-                                .setAction(ACTION_OPEN_PLAY_UPDATE))
-                            .build()
-                        if (!manager.requestPinShortcut(shortcut, null)) {
-                            Toast.makeText(this@UpdateSettingsActivity,
-                                R.string.pin_shortcut_unavailable, Toast.LENGTH_LONG).show()
-                        }
+        val manager = getSystemService(ShortcutManager::class.java)
+        if (manager?.isRequestPinShortcutSupported == true) {
+            content.addView(Button(this).apply {
+                setText(R.string.pin_play_shortcut)
+                setOnClickListener {
+                    // Pin the shortcut already published in xml-v29/shortcuts.xml.
+                    val shortcut = ShortcutInfo.Builder(this@UpdateSettingsActivity, PLAY_SHORTCUT_ID)
+                        .build()
+                    if (!manager.requestPinShortcut(shortcut, null)) {
+                        Toast.makeText(this@UpdateSettingsActivity,
+                            R.string.pin_shortcut_unavailable, Toast.LENGTH_LONG).show()
                     }
-                })
-            }
+                }
+            })
         }
     }
 
@@ -79,5 +74,9 @@ class UpdateSettingsActivity : Activity() {
             ?: getString(R.string.play_update_unknown)
         versionView.text = getString(R.string.play_update_installed_version, version)
         GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
+    }
+
+    private companion object {
+        const val PLAY_SHORTCUT_ID = "play_update"
     }
 }
