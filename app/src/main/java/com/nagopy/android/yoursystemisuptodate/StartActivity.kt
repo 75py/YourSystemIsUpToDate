@@ -15,8 +15,6 @@ import android.widget.Toast
 class StartActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidVersionWidgetProvider.refreshAllWidgets(this)
-        GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
         when (resolveUpdateTarget(intent.action)) {
             UpdateTarget.SYSTEM -> openSystemUpdateSettings()
             UpdateTarget.GOOGLE_PLAY -> if (!GooglePlaySystemUpdate.open(this)) {
@@ -24,6 +22,9 @@ class StartActivity : Activity() {
             }
             UpdateTarget.UNKNOWN -> Log.e(TAG, "Unexpected action: ${intent.action}")
         }
+        // Refresh after the launch, so a failure here cannot keep the screen from opening.
+        AndroidVersionWidgetProvider.refreshAllWidgets(this)
+        GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
         finish()
     }
 
