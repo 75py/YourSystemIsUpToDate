@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <!-- Same glyph as ic_play_update, scaled into the adaptive icon safe zone. -->
+    <group android:scaleX="0.551" android:scaleY="0.551"
+        android:translateX="5.388" android:translateY="5.388">
+        <path android:fillColor="@android:color/white"
+            android:pathData="M20.49,7.1A9.8,9.8 0,1 1,14.54,2.53L13.92,4.85A7.4,7.4 0,1 0,18.41,8.3zM15.03,0.7L19.06,4.99L13.42,6.69zM10,8.3L10,15.7L16.3,12z" />
+    </group>
+</vector>
