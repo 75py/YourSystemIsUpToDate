@@ -23,4 +23,10 @@ class UpdateTargetTest {
             assertEquals(UpdateTarget.GOOGLE_PLAY, resolveUpdateTarget(ACTION_OPEN_PLAY_UPDATE, isPlayLauncher))
         }
     }
+
+    @Test fun unexpectedActionsAreNotMappedToADestination() {
+        for (isPlayLauncher in listOf(false, true)) {
+            assertEquals(UpdateTarget.UNKNOWN, resolveUpdateTarget("android.intent.action.VIEW", isPlayLauncher))
+        }
+    }
 }
