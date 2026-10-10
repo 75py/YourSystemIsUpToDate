@@ -61,7 +61,8 @@ Before release, check on a Google Play-enabled device:
 - Place both widget types; each opens its own destination.
 - Compare the Play widget date with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.
-- Check the 2×1 widget at large font sizes, in light/dark mode, and with TalkBack.
+- Check the Play widget at 2×1 and resized down to 1×1, at large font sizes, in
+  light/dark mode, and with TalkBack.
 - On an unsupported device, verify the unavailable value and launch error message.
 
 ## Download
