@@ -7,28 +7,33 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Build
+import android.util.Log
 
 internal object GooglePlaySystemUpdate {
+    private const val TAG = "GooglePlaySystemUpdate"
     private const val PLAY_STORE_PACKAGE = "com.android.vending"
 
-    @Suppress("DEPRECATION")
     fun version(context: Context): String? {
         for (packageName in moduleMetadataPackages(configuredMetadataProvider())) {
             try {
-                return context.packageManager.getPackageInfo(packageName, 0).versionName
-            } catch (_: PackageManager.NameNotFoundException) {
+                @Suppress("DEPRECATION")
+                val packageInfo = context.packageManager.getPackageInfo(packageName, 0)
+                return packageInfo.versionName
+            } catch (e: PackageManager.NameNotFoundException) {
                 // Try the next candidate.
-            } catch (_: SecurityException) {
+                Log.e(TAG, "Module metadata package not found: $packageName", e)
+            } catch (e: SecurityException) {
                 // Try the next candidate.
+                Log.e(TAG, "Not allowed to read module metadata package: $packageName", e)
             }
         }
         return null
     }
 
-    // Settings reads the provider from this framework config, which is not a public resource.
-    @SuppressLint("DiscouragedApi")
     private fun configuredMetadataProvider(): String? {
         val resources = Resources.getSystem()
+        // Settings reads the provider from this framework config, which is not a public resource.
+        @SuppressLint("DiscouragedApi")
         val id = resources.getIdentifier("config_defaultModuleMetadataProvider", "string", "android")
         return if (id != 0) resources.getString(id) else null
     }
@@ -47,10 +52,12 @@ internal object GooglePlaySystemUpdate {
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                 )
                 return true
-            } catch (_: ActivityNotFoundException) {
+            } catch (e: ActivityNotFoundException) {
                 // Try the older action if the newer entry point is unavailable.
-            } catch (_: SecurityException) {
+                Log.e(TAG, "No Google Play activity handles $action", e)
+            } catch (e: SecurityException) {
                 // Some builds restrict an entry point to privileged callers.
+                Log.e(TAG, "Not allowed to start $action", e)
             }
         }
         return false
