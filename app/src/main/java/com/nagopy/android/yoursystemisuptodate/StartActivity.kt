@@ -17,7 +17,7 @@ class StartActivity : Activity() {
         super.onCreate(savedInstanceState)
         AndroidVersionWidgetProvider.refreshAllWidgets(this)
         GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
-        when (resolveUpdateTarget(intent.action, intent.component?.className == PLAY_LAUNCHER_CLASS)) {
+        when (resolveUpdateTarget(intent.action)) {
             UpdateTarget.SYSTEM -> openSystemUpdateSettings()
             UpdateTarget.GOOGLE_PLAY -> if (!GooglePlaySystemUpdate.open(this)) {
                 Toast.makeText(this, R.string.play_update_open_failed, Toast.LENGTH_LONG).show()
@@ -28,8 +28,8 @@ class StartActivity : Activity() {
     }
 
     private fun openSystemUpdateSettings() {
-        // Keep the settings screen out of this app's task. Both launcher icons share that
-        // task, so a later tap on either would resume it instead of running this activity.
+        // Keep the settings screen out of this app's task. A later launch would otherwise
+        // resume that task instead of running this activity.
         val intent = Intent(ACTION_SYSTEM_UPDATE_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
             intent.component = findSystemUpdateActivity(intent) ?: run {

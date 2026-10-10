@@ -16,6 +16,7 @@
     <string name="widget_accessibility_open_system_update">Opens system update settings</string>
     <string name="widget_accessibility_separator">.\u0020</string>
     <string name="play_update_label">Google Play system update</string>
+    <string name="play_shortcut_short_label">Play update</string>
     <string name="play_update_open_failed">Unable to open Google Play system update. This device or Google Play version may not support the shortcut.</string>
     <string name="play_update_unknown">Unavailable</string>
     <string name="play_widget_label">Google Play</string>
