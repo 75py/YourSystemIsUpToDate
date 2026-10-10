@@ -21,10 +21,10 @@ internal object GooglePlaySystemUpdate {
                 return packageInfo.versionName
             } catch (e: PackageManager.NameNotFoundException) {
                 // Try the next candidate.
-                Log.e(TAG, "Module metadata package not found: $packageName", e)
+                Log.w(TAG, "Module metadata package not found: $packageName", e)
             } catch (e: SecurityException) {
                 // Try the next candidate.
-                Log.e(TAG, "Not allowed to read module metadata package: $packageName", e)
+                Log.w(TAG, "Not allowed to read module metadata package: $packageName", e)
             }
         }
         return null
@@ -54,10 +54,10 @@ internal object GooglePlaySystemUpdate {
                 return true
             } catch (e: ActivityNotFoundException) {
                 // Try the older action if the newer entry point is unavailable.
-                Log.e(TAG, "No Google Play activity handles $action", e)
+                Log.w(TAG, "No Google Play activity handles $action", e)
             } catch (e: SecurityException) {
                 // Some builds restrict an entry point to privileged callers.
-                Log.e(TAG, "Not allowed to start $action", e)
+                Log.w(TAG, "Not allowed to start $action", e)
             }
         }
         return false
