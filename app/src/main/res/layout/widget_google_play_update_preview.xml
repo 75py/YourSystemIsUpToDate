@@ -1,50 +1,19 @@
 <!-- Widget picker preview (Android 12+): widget_google_play_update with a sample value. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/background"
+    style="@style/PlayWidget"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/widget_background"
-    android:importantForAccessibility="yes"
-    android:contentDescription="@string/play_widget_description"
-    android:orientation="vertical"
-    android:paddingHorizontal="4dp"
-    android:paddingVertical="2dp">
+    android:layout_height="match_parent">
 
     <TextView
+        style="@style/PlayWidgetText.Label"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
-        android:gravity="bottom|center_horizontal"
-        android:importantForAccessibility="no"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="@string/play_widget_label"
-        android:textColor="@color/widget_text_secondary"
-        android:textSize="14sp"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="6dp"
-        android:autoSizeMaxTextSize="14sp"
-        android:autoSizeStepGranularity="1dp"
-        tools:targetApi="o" />
+        android:text="@string/play_widget_label" />
 
     <TextView
+        style="@style/PlayWidgetText.Value"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
-        android:gravity="top|center_horizontal"
-        android:importantForAccessibility="no"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="@string/play_widget_preview_version"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/widget_text_primary"
-        android:textSize="18sp"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="6dp"
-        android:autoSizeMaxTextSize="18sp"
-        android:autoSizeStepGranularity="1dp"
-        tools:targetApi="o" />
+        android:text="@string/play_widget_preview_version" />
 </LinearLayout>

@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Shared by widget_google_play_update and its picker preview, so the two cannot drift.
+         The two lines share the height 14:18 and shrink to fit, so a short cell or a large
+         system font does not clip the date. The lower bounds are dp: an sp bound grows with
+         the font scale and would ellipsize the date in a single cell at 200%. -->
+    <style name="PlayWidget" tools:targetApi="o">
+        <item name="android:background">@drawable/widget_background</item>
+        <item name="android:importantForAccessibility">yes</item>
+        <item name="android:contentDescription">@string/play_widget_description</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingHorizontal">4dp</item>
+        <item name="android:paddingVertical">2dp</item>
+    </style>
+
+    <style name="PlayWidgetText" tools:targetApi="o">
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMinTextSize">6dp</item>
+        <item name="android:autoSizeStepGranularity">1dp</item>
+    </style>
+
+    <style name="PlayWidgetText.Label" tools:targetApi="o">
+        <item name="android:layout_weight">7</item>
+        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:textColor">@color/widget_text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:autoSizeMaxTextSize">14sp</item>
+    </style>
+
+    <style name="PlayWidgetText.Value" tools:targetApi="o">
+        <item name="android:layout_weight">9</item>
+        <item name="android:gravity">top|center_horizontal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/widget_text_primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:autoSizeMaxTextSize">18sp</item>
+    </style>
+</resources>
