@@ -13,7 +13,7 @@ This app was originally named **YourSystemIsUpToDate**. We decided to rename it 
 - **Simple and Intuitive**: One-tap access to system update settings.
 - **Google Play System Updates**: Open Google Play system update settings using a dedicated shortcut.
 - **Widgets**: Choose Android version or Google Play system update in the widget picker. Each widget opens its own update screen.
-- **Two Launcher Icons**: The original icon opens OS update settings; a second Google Play system update icon opens Play update settings directly on Android 10 and later. Long-press the original icon and select **Update information** to view the installed Play update level.
+- **Two Launcher Icons**: The original icon opens OS update settings; a second Google Play system update icon opens Play update settings directly on Android 10 and later.
 - **Humorous Twist**: Most of the time, you'll be greeted with the message, "Your system is up to date!" 😉
 
 ## Google Play system update
@@ -23,16 +23,14 @@ update icon and its home-screen placements keep their original behavior. The new
 **Google Play system update** icon opens the Play update screen directly, without a
 chooser or an initial setup step. Both icons belong to this single installed app.
 
-The original icon’s long-press menu also provides **Play update**, **OS update**, and
-**Update information**. On supported launchers, drag the Play shortcut to the home
-screen, or use **Update information → Add Play update shortcut to Home screen**.
+The original icon’s long-press menu also provides **Play update** and **OS update**.
+On supported launchers, drag the Play shortcut to the home screen.
 
 Add **Google Play system update** from the launcher’s widget picker to display the
 installed update level. It can coexist with the existing Android version widget;
 each widget always opens its respective update screen.
 A Google Play system update takes effect when the device restarts, so the widget
-refreshes after a restart and whenever the app or its settings are opened. Tap it to
-check for updates.
+refreshes after a restart and whenever the app is opened. Tap it to check for updates.
 
 The date is read from `com.google.android.modulemetadata`’s `versionName`, following
 [Google’s documented Mainline version lookup](https://developers.google.com/android/work/security-posture-signals#retrieve_mainline_version).
@@ -61,8 +59,8 @@ Before release, check on a Google Play-enabled device:
 - Upgrade with an existing Android widget: it still opens OS update settings.
 - Check both launcher icons: the original opens OS update and the new icon opens
   Play update, with no chooser. Confirm both belong to the same installed app.
-- Tap the icons alternately, pressing Home in between and after opening **Update
-  information**: each icon must still open its own screen.
+- Tap the icons alternately, pressing Home in between: each icon must still open its
+  own screen.
 - Pin the Play shortcut and place both widget types; each opens its own destination.
 - Compare the Play widget date with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.

@@ -14,11 +14,4 @@
             android:targetPackage="com.nagopy.android.yoursystemisuptodate"
             android:targetClass="com.nagopy.android.yoursystemisuptodate.StartActivity" />
     </shortcut>
-    <shortcut android:shortcutId="update_settings"
-        android:icon="@drawable/ic_shortcut_settings"
-        android:shortcutShortLabel="@string/update_settings_title">
-        <intent android:action="android.intent.action.VIEW"
-            android:targetPackage="com.nagopy.android.yoursystemisuptodate"
-            android:targetClass="com.nagopy.android.yoursystemisuptodate.UpdateSettingsActivity" />
-    </shortcut>
 </shortcuts>

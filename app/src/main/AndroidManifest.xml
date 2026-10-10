@@ -48,14 +48,6 @@
             </intent-filter>
         </activity-alias>
 
-        <activity
-            android:name=".UpdateSettingsActivity"
-            android:enabled="@bool/google_play_update_supported"
-            android:exported="true"
-            android:label="@string/update_settings_title"
-            android:taskAffinity="com.nagopy.android.yoursystemisuptodate.updatesettings"
-            android:theme="@style/UpdateSettingsTheme" />
-
         <receiver
             android:name=".AndroidVersionWidgetProvider"
             android:exported="false"
