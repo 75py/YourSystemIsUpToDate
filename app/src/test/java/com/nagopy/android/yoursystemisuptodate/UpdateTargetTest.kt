@@ -17,9 +17,8 @@ class UpdateTargetTest {
         assertEquals(UpdateTarget.SYSTEM, resolveUpdateTarget(ACTION_ANDROID_WIDGET_TAP, true))
     }
 
-    @Test fun dedicatedShortcutsAlwaysKeepTheirOwnDestination() {
+    @Test fun playWidgetsAlwaysOpenGooglePlay() {
         for (isPlayLauncher in listOf(false, true)) {
-            assertEquals(UpdateTarget.SYSTEM, resolveUpdateTarget(ACTION_OPEN_SYSTEM_UPDATE, isPlayLauncher))
             assertEquals(UpdateTarget.GOOGLE_PLAY, resolveUpdateTarget(ACTION_OPEN_PLAY_UPDATE, isPlayLauncher))
         }
     }

@@ -23,9 +23,6 @@ update icon and its home-screen placements keep their original behavior. The new
 **Google Play system update** icon opens the Play update screen directly, without a
 chooser or an initial setup step. Both icons belong to this single installed app.
 
-The original icon’s long-press menu also provides **Play update** and **OS update**.
-On supported launchers, drag the Play shortcut to the home screen.
-
 Add **Google Play system update** from the launcher’s widget picker to display the
 installed update level. It can coexist with the existing Android version widget;
 each widget always opens its respective update screen.
@@ -61,7 +58,7 @@ Before release, check on a Google Play-enabled device:
   Play update, with no chooser. Confirm both belong to the same installed app.
 - Tap the icons alternately, pressing Home in between: each icon must still open its
   own screen.
-- Pin the Play shortcut and place both widget types; each opens its own destination.
+- Place both widget types; each opens its own destination.
 - Compare the Play widget date with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.
 - Check the 2×1 widget at large font sizes, in light/dark mode, and with TalkBack.

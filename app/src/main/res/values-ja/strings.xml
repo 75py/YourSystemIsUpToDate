@@ -15,9 +15,7 @@
     <string name="widget_accessibility_api_level">API レベル %1$d</string>
     <string name="widget_accessibility_open_system_update">システム アップデート設定を開きます</string>
     <string name="widget_accessibility_separator">、</string>
-    <string name="system_update_label">OS更新</string>
     <string name="play_update_label">Google Playシステム更新</string>
-    <string name="play_shortcut_short_label">Play更新</string>
     <string name="play_update_open_failed">Google Playシステム更新を開けませんでした。この端末またはGoogle Playのバージョンでは対応していない可能性があります。</string>
     <string name="play_update_unknown">取得できません</string>
     <string name="play_widget_label">Google Play</string>
