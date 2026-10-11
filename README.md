@@ -12,7 +12,7 @@ This app was originally named **YourSystemIsUpToDate**. We decided to rename it 
 
 - **Simple and Intuitive**: One-tap access to system update settings.
 - **Google Play System Updates**: On Android 10 and later, long-press the app icon and choose **Play update** to open Google Play system update settings. Drag the shortcut to the home screen to keep it there.
-- **Widgets**: Choose Android version or Google Play system update in the widget picker. Each widget opens its own update screen.
+- **Widgets**: Choose **Android version** or **Google Play update** in the widget picker. Each widget opens its own update screen.
 - **Humorous Twist**: Most of the time, you'll be greeted with the message, "Your system is up to date!" 😉
 
 ## Google Play system update
@@ -25,7 +25,7 @@ On Android 10 and later, long-press the app icon and choose **Play update** to o
 Play update screen directly. On supported launchers, drag that shortcut to the home
 screen to place it as its own icon.
 
-Or add **Google Play system update** from the launcher’s widget picker to display the
+Or add **Google Play update** from the launcher’s widget picker to display the
 installed update level. It can coexist with the existing Android version widget;
 each widget always opens its respective update screen.
 A Google Play system update takes effect when the device restarts, so the widget

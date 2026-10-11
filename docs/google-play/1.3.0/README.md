@@ -34,7 +34,7 @@ Androidバージョンウィジェット
 ・1×1のコンパクト表示から、横長・縦長のサイズまで表示内容を調整します。
 ・タップすると、端末のシステムアップデート設定を開きます。
 
-Google Playシステム更新ウィジェット（Android 10以降）
+Google Play更新ウィジェット（Android 10以降）
 ・導入済みのGoogle Playシステム更新の更新レベルを表示します。
 ・タップすると、Google Playシステム更新画面を開きます。
 ・Androidバージョンウィジェットと一緒に配置できます。
@@ -78,7 +78,7 @@ Android version widget
 • Adapts from a compact 1×1 layout to wider and taller layouts.
 • Opens your device's system update settings when tapped.
 
-Google Play system update widget (Android 10 and later)
+Google Play update widget (Android 10 and later)
 • Shows the installed Google Play system update level.
 • Opens Google Play system update settings when tapped.
 • Can be placed alongside the Android version widget.
@@ -136,14 +136,16 @@ examples, not claims that a device is up to date.
 | 2 | アプリアイコンを長押しすると表示される「Play更新」ショートカット | The Play update shortcut in the app icon's long-press menu. |
 | 3 | Androidバージョン、セキュリティパッチ、ビルドID、APIレベルを表示するウィジェット | An expanded widget showing the Android version, security patch, build ID, and API level. |
 | 4 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
-| 5 | AndroidバージョンとGoogle Playシステム更新を選べるウィジェット一覧 | The widget picker with Android version and Google Play system update widgets. |
+| 5 | 「Android バージョン」と「Google Play更新」を選べるウィジェット一覧 | The widget picker with Android version and Google Play update widgets. |
 
 ## Publishing notes
 
 ### Capture setup
 
 - App: debug build of version 1.3.0 (version code 6), with the widget resources
-  from source commit `1610dd9`.
+  from source commit `1610dd9`. English images 1–3 and 5, and Japanese image 5,
+  were recaptured with `e190e53` after restoring the launcher label and refining
+  the picker/accessibility resources.
 - Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
@@ -162,7 +164,11 @@ examples, not claims that a device is up to date.
 
 ### Console update
 
-- Keep the existing localized app names. This release adds Google Play system
+- Keep the existing localized app names. The English launcher uses
+  “System Update Shortcut”; the store title remains “Shortcut to System Update”.
+  The capture device’s Pixel Launcher picker shows the application/store name;
+  other launchers may show the activity name. Either header is acceptable.
+  This release adds Google Play system
   update access without adding another launcher icon automatically.
 - For titles and descriptions, omit Markdown headings and fences. For release
   notes, retain the language tags from the combined block above.
