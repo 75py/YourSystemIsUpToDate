@@ -22,9 +22,14 @@ class StartActivity : Activity() {
             }
             UpdateTarget.UNKNOWN -> Log.e(TAG, "Unexpected action: ${intent.action}")
         }
-        // Refresh after the launch, so a failure here cannot keep the screen from opening.
-        AndroidVersionWidgetProvider.refreshAllWidgets(this)
-        GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
+        // Refresh after the launch, so a failure here cannot keep the screen from opening,
+        // and do not let it crash the app either.
+        try {
+            AndroidVersionWidgetProvider.refreshAllWidgets(this)
+            GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "Failed to refresh the widgets", e)
+        }
         finish()
     }
 
