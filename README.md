@@ -31,7 +31,7 @@ each widget always opens its respective update screen.
 A Google Play system update takes effect when the device restarts, so the widget
 refreshes after a restart and whenever the app is opened. Tap it to check for updates.
 
-The date is read from `com.google.android.modulemetadata`’s `versionName`, following
+The update level is read from `com.google.android.modulemetadata`’s `versionName`, following
 [Google’s documented Mainline version lookup](https://developers.google.com/android/work/security-posture-signals#retrieve_mainline_version).
 Devices that declare AOSP’s `com.android.modulemetadata` as the provider are read from
 that package instead.
@@ -46,6 +46,9 @@ screen shows an error message without crashing. No root, device administrator,
 network permission, or broad package-query permission is needed.
 
 ## Development and verification
+
+Store listing copy, release notes, and screenshots are maintained in
+[Google Play release assets](docs/google-play/README.md).
 
 Use JDK 17 and Android SDK 36:
 
@@ -62,16 +65,13 @@ Before release, check on a Google Play-enabled device:
 - Tap the icon and the pinned shortcut alternately, pressing Home in between: each
   must still open its own screen.
 - Place both widget types; each opens its own destination.
-- Compare the Play widget date with Settings, including after applying an update
+- Compare the Play widget update level with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.
 - Check the Play widget at 2×1 and resized down to 1×1, at large font sizes, in
   light/dark mode, and with TalkBack.
 - On an unsupported device, verify the unavailable value and launch error message.
 
 ## Download
-
-Google Play listing text, release notes, and screenshot order for version 1.3.0
-are in [the store listing document](docs/google-play/1.3.0.md).
 
 https://play.google.com/store/apps/details?id=com.nagopy.android.yoursystemisuptodate
 

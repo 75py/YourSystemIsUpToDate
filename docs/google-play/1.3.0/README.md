@@ -1,8 +1,8 @@
 # Google Play listing — 1.3.0
 
-Copy the text inside each block into the corresponding Play Console field.
-Update both the Japanese and English (United States) main store listings.
-Release notes belong to the 1.3.0 release, not the full description.
+Copy each title and description block into its matching main store listing field.
+Update both Japanese and English (United States). For release notes, use the
+combined language-tagged block below in the release editor; retain its tags.
 
 ## 日本語（ja-JP）
 
@@ -21,7 +21,7 @@ Androidバージョンを表示し、OSとGoogle Playのシステム更新画面
 ### 詳しい説明
 
 ```text
-システムアップデート設定へのショートカットと、AndroidバージョンやGoogle Playシステム更新の日付を表示するホーム画面ウィジェットを組み合わせたシンプルなツールです。
+システムアップデート設定へのショートカットと、AndroidバージョンやGoogle Playシステム更新の更新レベルを表示するホーム画面ウィジェットを組み合わせたシンプルなツールです。
 
 システムアップデートへのショートカット
 ・アプリアイコンをタップすると、端末のシステムアップデート設定を開きます。
@@ -35,25 +35,17 @@ Androidバージョンウィジェット
 ・タップすると、端末のシステムアップデート設定を開きます。
 
 Google Playシステム更新ウィジェット（Android 10以降）
-・導入済みのGoogle Playシステム更新の日付を表示します。
+・導入済みのGoogle Playシステム更新の更新レベルを表示します。
 ・タップすると、Google Playシステム更新画面を開きます。
 ・Androidバージョンウィジェットと一緒に配置できます。
 ・更新は端末の再起動後に反映されます。ウィジェットは再起動後やアプリを開いたときに表示を更新します。
 
-このアプリ自体がアップデートの有無を判定したり、更新を実行したりするものではありません。端末が提供する更新画面を開きます。Google Playウィジェットの日付は導入済みの更新のレベルを示し、インストールした日時や更新の有無を示すものではありません。
+このアプリ自体がアップデートの有無を判定したり、更新を実行したりするものではありません。端末が提供する更新画面を開きます。Google Playウィジェットの表示は導入済みの更新のレベルを示し、インストールした日時や更新の有無を示すものではありません。
 
 更新画面の名称や利用可否は、端末メーカー、Androidバージョン、Google Playのバージョンによって異なります。更新情報を取得できない場合は「取得できません」と表示します。
 
 ソースコード
 https://github.com/75py/YourSystemIsUpToDate
-```
-
-### 1.3.0のリリースノート
-
-```text
-・Android 10以降で、アプリアイコンの長押しから「Play更新」を開けるようになりました。対応するホームアプリでは、ホーム画面にも配置できます。
-・導入済みのGoogle Playシステム更新の日付を表示するウィジェットを追加しました。タップすると更新画面を開けます。
-・既存のAndroidバージョンウィジェットと並べて利用できます。
 ```
 
 ## English (United States, en-US)
@@ -92,7 +84,7 @@ Google Play system update widget (Android 10 and later)
 • Can be placed alongside the Android version widget.
 • Google Play system updates take effect after a restart. The widget refreshes after a restart and whenever you open this app.
 
-This app does not determine whether an update is available or install updates itself. It opens the update screens provided by your device. The date in the Google Play widget identifies the installed update level, not when it was installed or whether an update is available.
+This app does not determine whether an update is available or install updates itself. It opens the update screens provided by your device. The value in the Google Play widget identifies the installed update level, not when it was installed or whether an update is available.
 
 Screen names and availability may vary by device manufacturer, Android version, and Google Play version. If the installed update level cannot be read, the widget shows “Unavailable”.
 
@@ -100,17 +92,29 @@ Source code
 https://github.com/75py/YourSystemIsUpToDate
 ```
 
-### Release notes for 1.3.0
+## Release notes — paste into the release editor
+
+Copy the entire block, including the language tags, into the release notes field.
+Keep each opening and closing tag on its own line. Each language is limited to
+500 Unicode characters. If editing existing notes, replace the matching language
+sections instead of adding duplicate tags.
 
 ```text
+<ja-JP>
+・Android 10以降で、アプリアイコンの長押しから「Play更新」を開けるようになりました。対応するホームアプリでは、ホーム画面にも配置できます。
+・導入済みのGoogle Playシステム更新の更新レベルを表示するウィジェットを追加しました。タップすると更新画面を開けます。
+・既存のAndroidバージョンウィジェットと並べて利用できます。
+</ja-JP>
+<en-US>
 • On Android 10 and later, long-press the app icon and choose “Play update” to open Google Play system update settings. On supported launchers, you can also drag the shortcut to your home screen.
 • Added a widget showing the installed Google Play system update level. Tap it to open update settings.
 • Use it alongside the existing Android version widget.
+</en-US>
 ```
 
 ## Screenshots
 
-Upload the root-level PNG files in the order below under phone screenshots for
+Upload the versioned PNG files in `screenshots/<locale>/` in the order below under phone screenshots for
 each language. The images are 1080×1920 and show the running app's widgets and
 launcher shortcut. Home screen dates and version values come from the capture
 emulator; the widget picker uses the app's built-in preview. These values are
@@ -118,10 +122,11 @@ examples, not claims that a device is up to date.
 
 | Order | Japanese | English | Content |
 | --- | --- | --- | --- |
-| 1 | [ss_ja1.png](../../ss_ja1.png) | [ss_en1.png](../../ss_en1.png) | Android and Google Play widgets together |
-| 2 | [ss_ja2.png](../../ss_ja2.png) | [ss_en2.png](../../ss_en2.png) | Long-press menu with Play update |
-| 3 | [ss_ja3.png](../../ss_ja3.png) | [ss_en3.png](../../ss_en3.png) | Expanded Android version widget |
-| 4 | [ss_ja4.png](../../ss_ja4.png) | [ss_en4.png](../../ss_en4.png) | Widget picker showing both widget types |
+| 1 | [ja-JP/01-overview.png](screenshots/ja-JP/01-overview.png) | [en-US/01-overview.png](screenshots/en-US/01-overview.png) | Android and Google Play widgets together |
+| 2 | [ja-JP/02-play-shortcut.png](screenshots/ja-JP/02-play-shortcut.png) | [en-US/02-play-shortcut.png](screenshots/en-US/02-play-shortcut.png) | Long-press menu with Play update |
+| 3 | [ja-JP/03-android-details.png](screenshots/ja-JP/03-android-details.png) | [en-US/03-android-details.png](screenshots/en-US/03-android-details.png) | Expanded Android version widget |
+| 4 | [ja-JP/04-system-update.png](screenshots/ja-JP/04-system-update.png) | [en-US/04-system-update.png](screenshots/en-US/04-system-update.png) | System update screen opened by the app |
+| 5 | [ja-JP/05-widget-picker.png](screenshots/ja-JP/05-widget-picker.png) | [en-US/05-widget-picker.png](screenshots/en-US/05-widget-picker.png) | Widget picker showing both widget types |
 
 ### Screenshot alternative text
 
@@ -129,36 +134,47 @@ examples, not claims that a device is up to date.
 | --- | --- | --- |
 | 1 | ホーム画面に並べたAndroidバージョンとGoogle Playシステム更新のウィジェット | Android version and Google Play system update widgets together on the home screen. |
 | 2 | アプリアイコンを長押しすると表示される「Play更新」ショートカット | The Play update shortcut in the app icon's long-press menu. |
-| 3 | Androidバージョン、セキュリティパッチ、ビルドIDを表示するウィジェット | An expanded widget showing the Android version, security patch, and build ID. |
-| 4 | AndroidバージョンとGoogle Playシステム更新を選べるウィジェット一覧 | The widget picker with Android version and Google Play system update widgets. |
+| 3 | Androidバージョン、セキュリティパッチ、ビルドID、APIレベルを表示するウィジェット | An expanded widget showing the Android version, security patch, build ID, and API level. |
+| 4 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
+| 5 | AndroidバージョンとGoogle Playシステム更新を選べるウィジェット一覧 | The widget picker with Android version and Google Play system update widgets. |
 
 ## Publishing notes
 
 ### Capture setup
 
-- App: debug build of version 1.3.0 (version code 6), source commit `16f193b`.
-- Device: Android 16 / API 36 Google APIs emulator, 1080×1920, Pixel Launcher.
-- Images 1–3: 420 dpi, default font size. Image 4: 360 dpi, font scale 0.85
-  so the widget names and descriptions fit in the picker.
+- App: debug build of version 1.3.0 (version code 6), with the widget resources
+  from source commit `1610dd9`.
+- Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
+  SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
+  revision 9, build `CP31.260623.012`.
+- Actual device values: security patch `2026-07-05`; Google Play module metadata
+  version `2026-05`. The picker preview uses the same example values.
+- All images: 1080×1920, default 420 dpi and font scale 1.0. The overview uses
+  2×1 widgets; the details image uses a 4×2 Android widget so API level is visible.
 - Switch the system language between Japanese and English (United States).
 - Use System UI demo mode to hide notifications and show a consistent 10:00 clock.
+  The update screen's last-check time is the device's actual time.
 - Capture with `adb exec-out screencap -p`. Export as 24-bit RGB PNG without
-  changing the captured screen content. The images do not verify update-screen
-  navigation; use the release checks below for that.
+  changing the captured screen content. Image 4 shows the system update screen
+  reached by tapping the app icon. The Japanese app title is abbreviated by the
+  launcher's fixed-width picker header; widget names and descriptions fit at
+  the default settings.
 
 ### Console update
 
 - Keep the existing localized app names. This release adds Google Play system
   update access without adding another launcher icon automatically.
-- Paste only each text block's contents, without the Markdown headings or fences.
+- For titles and descriptions, omit Markdown headings and fences. For release
+  notes, retain the language tags from the combined block above.
 - Store listing changes are shared across tracks. Coordinate their publication
   with the production release of 1.3.0.
 - Verify Google Play update navigation on a supported, Google Play-enabled device
-  using the [release checks](../../README.md#development-and-verification).
+  using the [release checks](../../../README.md#development-and-verification).
 
 ## References
 
 - [Current Japanese listing](https://play.google.com/store/apps/details?id=com.nagopy.android.yoursystemisuptodate&hl=ja)
 - [Current English listing](https://play.google.com/store/apps/details?id=com.nagopy.android.yoursystemisuptodate&hl=en)
 - [Store listing fields and localization](https://support.google.com/googleplay/android-developer/answer/9859152?hl=en)
+- [Release notes format and limits](https://support.google.com/googleplay/android-developer/answer/9859348?hl=en)
 - [Screenshot requirements](https://support.google.com/googleplay/android-developer/answer/9866151?hl=en)
