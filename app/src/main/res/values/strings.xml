@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Shortcut to System Update</string>
+    <string name="shortcut_label">System Update Shortcut</string>
     <string name="system_update_open_failed">Unable to open the system update screen.</string>
     <string name="widget_name">Android version</string>
     <string name="widget_description">Shows Android version. Tap for OS updates.</string>
@@ -23,5 +24,6 @@
     <string name="play_widget_name">Google Play update</string>
     <string name="play_widget_preview_version" translatable="false">2026-05</string>
     <string name="play_widget_description">Installed update level. Tap for Play updates.</string>
+    <string name="play_widget_initial_content_description">Google Play system update level. Tap to open Google Play system update settings.</string>
     <string name="play_widget_accessibility">Google Play system update: %1$s. Opens Google Play system update settings.</string>
 </resources>

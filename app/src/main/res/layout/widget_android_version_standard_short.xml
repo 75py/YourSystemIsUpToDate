@@ -12,6 +12,7 @@
     <TextView
         android:id="@+id/widget_android_label"
         style="@style/AndroidVersionWidgetShortText.Label"
+        android:text="@string/widget_android_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

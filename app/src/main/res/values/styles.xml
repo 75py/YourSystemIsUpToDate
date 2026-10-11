@@ -1,13 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Shared by the short Android widget and its Android 12+ picker preview. -->
-    <style name="AndroidVersionWidgetShort">
+    <style name="AndroidVersionWidgetShort" tools:targetApi="o">
         <item name="android:background">@drawable/widget_background</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:paddingStart">12dp</item>
-        <item name="android:paddingEnd">12dp</item>
-        <item name="android:paddingTop">2dp</item>
-        <item name="android:paddingBottom">2dp</item>
+        <!-- Preserve the pre-26 runtime layout, where these attributes are ignored. -->
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:paddingVertical">2dp</item>
     </style>
 
     <style name="AndroidVersionWidgetShortText">
@@ -18,7 +17,6 @@
     </style>
 
     <style name="AndroidVersionWidgetShortText.Label">
-        <item name="android:text">@string/widget_android_label</item>
         <item name="android:textColor">@color/widget_text_secondary</item>
         <item name="android:textSize">20sp</item>
     </style>
@@ -37,7 +35,7 @@
     <style name="PlayWidget" tools:targetApi="o">
         <item name="android:background">@drawable/widget_background</item>
         <item name="android:importantForAccessibility">yes</item>
-        <item name="android:contentDescription">@string/play_widget_description</item>
+        <item name="android:contentDescription">@string/play_widget_initial_content_description</item>
         <item name="android:paddingHorizontal">4dp</item>
         <item name="android:paddingVertical">2dp</item>
     </style>
