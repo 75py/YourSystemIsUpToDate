@@ -143,9 +143,11 @@ examples, not claims that a device is up to date.
 ### Capture setup
 
 - App: debug build of version 1.3.0 (version code 6), with the widget resources
-  from source commit `1610dd9`. English images 1–3 and 5, and Japanese image 5,
-  were recaptured with `e190e53` after restoring the launcher label and refining
-  the picker/accessibility resources.
+  prepared in [PR #6](https://github.com/75py/YourSystemIsUpToDate/pull/6).
+  In the second capture pass, English images 1–3 and 5, and Japanese image 5,
+  were recaptured after restoring the launcher label and refining the
+  picker/accessibility resources. Both image 5 files were captured again after
+  clarifying that the Google Play widget opens system update settings.
 - Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.

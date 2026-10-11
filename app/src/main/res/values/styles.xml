@@ -28,14 +28,14 @@
         <item name="android:textSize">42sp</item>
     </style>
 
-    <!-- Shared by widget_google_play_update and its picker preview, so the two cannot drift.
-         Both lines shrink to fit, so a short cell or a large system font does not clip the
-         date. The lower bounds are dp: an sp bound grows with the font scale and would
-         ellipsize the date in a single cell at 200%. -->
+    <!-- Shared visual attributes for widget_google_play_update and its picker preview.
+         Both lines shrink to fit the update level. Keep room for values longer than the
+         preview, including suffixes such as "2024-05-01 R" (12 characters). The lower
+         bounds use dp so they do not grow at 200% font scale; longer arbitrary values
+         can still be ellipsized in a single cell. -->
     <style name="PlayWidget" tools:targetApi="o">
         <item name="android:background">@drawable/widget_background</item>
         <item name="android:importantForAccessibility">yes</item>
-        <item name="android:contentDescription">@string/play_widget_initial_content_description</item>
         <item name="android:paddingHorizontal">4dp</item>
         <item name="android:paddingVertical">2dp</item>
     </style>
