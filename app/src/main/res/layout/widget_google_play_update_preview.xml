@@ -1,0 +1,22 @@
+<!-- Widget picker preview (Android 12+): widget_google_play_update with a sample value. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/background"
+    style="@style/PlayWidget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/PlayWidgetText.Label"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:text="@string/play_widget_label" />
+
+    <TextView
+        style="@style/PlayWidgetText.Value"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:text="@string/play_widget_preview_version" />
+</LinearLayout>

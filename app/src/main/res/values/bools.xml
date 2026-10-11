@@ -1,0 +1,3 @@
+<resources>
+    <bool name="google_play_update_supported">false</bool>
+</resources>

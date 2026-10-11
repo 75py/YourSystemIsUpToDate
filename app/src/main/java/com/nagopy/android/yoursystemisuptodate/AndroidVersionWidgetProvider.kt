@@ -33,9 +33,6 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
     }
 
     companion object {
-        private const val ACTION_WIDGET_TAP =
-            "com.nagopy.android.yoursystemisuptodate.action.WIDGET_TAP"
-
         internal fun refreshAllWidgets(context: Context) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
             val provider = ComponentName(context, AndroidVersionWidgetProvider::class.java)
@@ -369,7 +366,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
 
         private fun createTapIntent(context: Context, appWidgetId: Int): PendingIntent {
             val intent = Intent(context, StartActivity::class.java).apply {
-                action = ACTION_WIDGET_TAP
+                action = ACTION_ANDROID_WIDGET_TAP
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             }
             val immutableFlag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

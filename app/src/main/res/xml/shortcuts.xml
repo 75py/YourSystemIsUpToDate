@@ -1,0 +1,3 @@
+<!-- No shortcuts below Android 10: the Play update screen starts there (see xml-v29).
+     The manifest still needs this resource on every API level. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android" />

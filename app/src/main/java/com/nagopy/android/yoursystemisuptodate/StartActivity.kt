@@ -9,13 +9,27 @@ import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 
 class StartActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidVersionWidgetProvider.refreshAllWidgets(this)
-        openSystemUpdateSettings()
+        when (resolveUpdateTarget(intent.action)) {
+            UpdateTarget.SYSTEM -> openSystemUpdateSettings()
+            UpdateTarget.GOOGLE_PLAY -> if (!GooglePlaySystemUpdate.open(this)) {
+                Toast.makeText(this, R.string.play_update_open_failed, Toast.LENGTH_LONG).show()
+            }
+            UpdateTarget.UNKNOWN -> Log.e(TAG, "Unexpected action: ${intent.action}")
+        }
+        // Refresh after the launch, so a failure here cannot keep the screen from opening,
+        // and do not let it crash the app either.
+        try {
+            AndroidVersionWidgetProvider.refreshAllWidgets(this)
+            GooglePlayUpdateWidgetProvider.refreshAllWidgets(this)
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "Failed to refresh the widgets", e)
+        }
         finish()
     }
 
@@ -27,9 +41,11 @@ class StartActivity : Activity() {
                 return
             }
             startActivity(intent)
-        } catch (_: ActivityNotFoundException) {
+        } catch (e: ActivityNotFoundException) {
+            Log.e(TAG, "System update activity not found", e)
             showOpenFailure()
-        } catch (_: SecurityException) {
+        } catch (e: SecurityException) {
+            Log.e(TAG, "Not allowed to start the system update activity", e)
             showOpenFailure()
         }
     }
@@ -62,6 +78,7 @@ class StartActivity : Activity() {
     }
 
     companion object {
+        private const val TAG = "StartActivity"
         private const val ACTION_SYSTEM_UPDATE_SETTINGS = "android.settings.SYSTEM_UPDATE_SETTINGS"
     }
 }
