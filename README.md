@@ -70,6 +70,9 @@ Before release, check on a Google Play-enabled device:
 
 ## Download
 
+Google Play listing text, release notes, and screenshot order for version 1.3.0
+are in [the store listing document](docs/google-play/1.3.0.md).
+
 https://play.google.com/store/apps/details?id=com.nagopy.android.yoursystemisuptodate
 
 ## License
