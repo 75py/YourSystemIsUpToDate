@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Shortcut to System Update</string>
-    <string name="shortcut_label">System Update Shortcut</string>
     <string name="system_update_open_failed">Unable to open the system update screen.</string>
     <string name="widget_name">Android version</string>
-    <string name="widget_description">Shows this device’s Android version and opens system update settings.</string>
+    <string name="widget_description">Shows Android version. Tap for OS updates.</string>
+    <string name="widget_preview_version" translatable="false">17</string>
     <string name="widget_android_label">Android</string>
     <string name="widget_security_patch_compact_label">Patch</string>
     <string name="widget_build_id_label">Build</string>
@@ -20,7 +20,8 @@
     <string name="play_update_open_failed">Unable to open Google Play system update on this device.</string>
     <string name="play_update_unknown">Unavailable</string>
     <string name="play_widget_label">Google Play</string>
-    <string name="play_widget_preview_version" translatable="false">2026-01-01</string>
-    <string name="play_widget_description">Shows the installed Google Play system update level. Tap to open its update settings.</string>
+    <string name="play_widget_name">Google Play update</string>
+    <string name="play_widget_preview_version" translatable="false">2026-05</string>
+    <string name="play_widget_description">Installed update level. Tap for Play updates.</string>
     <string name="play_widget_accessibility">Google Play system update: %1$s. Opens Google Play system update settings.</string>
 </resources>

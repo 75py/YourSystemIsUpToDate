@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12+ picker preview. Runtime text is populated only by the provider. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AndroidVersionWidgetShort"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/AndroidVersionWidgetShortText.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/AndroidVersionWidgetShortText.Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_preview_version" />
+
+</LinearLayout>

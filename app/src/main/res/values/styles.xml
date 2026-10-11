@@ -1,4 +1,35 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Shared by the short Android widget and its Android 12+ picker preview. -->
+    <style name="AndroidVersionWidgetShort">
+        <item name="android:background">@drawable/widget_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <style name="AndroidVersionWidgetShortText">
+        <item name="android:ellipsize">end</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="AndroidVersionWidgetShortText.Label">
+        <item name="android:text">@string/widget_android_label</item>
+        <item name="android:textColor">@color/widget_text_secondary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AndroidVersionWidgetShortText.Value">
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/widget_text_primary</item>
+        <item name="android:textSize">42sp</item>
+    </style>
+
     <!-- Shared by widget_google_play_update and its picker preview, so the two cannot drift.
          Both lines shrink to fit, so a short cell or a large system font does not clip the
          date. The lower bounds are dp: an sp bound grows with the font scale and would
