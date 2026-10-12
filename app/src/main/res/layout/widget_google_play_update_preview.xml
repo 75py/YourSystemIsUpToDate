@@ -1,5 +1,4 @@
-<!-- Widget picker preview (Android 12+): widget_google_play_update with a sample value,
-     which Android 15+ replaces with the device's level. -->
+<!-- Widget picker preview (Android 12+): widget_google_play_update with a sample value. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     style="@style/PlayWidget"
@@ -15,7 +14,6 @@
         android:text="@string/play_widget_label" />
 
     <TextView
-        android:id="@+id/play_widget_version"
         style="@style/PlayWidgetText.Value"
         android:layout_width="match_parent"
         android:layout_height="0dp"

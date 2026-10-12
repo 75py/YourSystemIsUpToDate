@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Android 12+ picker preview: widget_android_version_standard_short with a sample version. -->
+<!-- Android 12+ picker preview: widget_android_version_standard_short with a sample version.
+     A separate layout, so the preview carries no tap target or action description. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     style="@style/AndroidVersionWidget.Short"
