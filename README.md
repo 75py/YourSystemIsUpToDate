@@ -65,9 +65,10 @@ Before release, check on a Google Play-enabled device:
 - Tap the icon and the pinned shortcut alternately, pressing Home in between: each
   must still open its own screen.
 - Place both widget types; each opens its own destination.
-- On Android 15 or later, open the app once and then the widget picker: both previews
-  show this device's values. Before the app has run, and on Android 12–14, they show
-  the sample preview.
+- On Android 15 or later, open the app once and then the widget picker: the Google
+  Play preview shows this device's update level. Before the app has run, and on
+  Android 12–14, it shows a sample level. The Android preview always shows the
+  release for the device's API level.
 - Compare the Play widget update level with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.
 - Check the Play widget at 2×1 and resized down to 1×1, at large font sizes, in

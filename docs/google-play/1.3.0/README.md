@@ -117,10 +117,11 @@ sections instead of adding duplicate tags.
 Upload the versioned PNG files in `screenshots/<locale>/` in the order below under phone screenshots for
 each language. The images are 1080×1920 and show the running app's widgets and
 launcher shortcut. Home screen dates and version values come from the capture
-emulator. The widget picker image shows the preview generated from the device's own
-values, which Android 15 and later use once the app or a widget has run; before
-that, and on Android 12–14, the picker shows the app's built-in sample preview.
-These values are examples, not claims that a device is up to date.
+emulator. In the widget picker, the Android preview is a built-in sample showing the
+release for the device's API level. The Google Play preview shows the device's own
+update level on Android 15 and later once the app or a widget has run; before that,
+and on Android 12–14, it shows a sample level. These values are examples, not
+claims that a device is up to date.
 
 | Order | Japanese | English | Content |
 | --- | --- | --- | --- |
@@ -147,14 +148,14 @@ These values are examples, not claims that a device is up to date.
 - App: debug build of version 1.3.0 (version code 6), with the widget resources
   prepared in [PR #6](https://github.com/75py/YourSystemIsUpToDate/pull/6).
   All ten images were captured in one pass on 2026-10-12, after the app had been
-  opened once so the picker shows its generated preview.
+  opened once.
 - Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
 - Actual device values: security patch `2026-07-05`; Google Play module metadata
-  version `2026-05`. The sample picker preview shows the Android release for the
-  device's API level (17 here) and a fixed example Play level, `2026-05`, so it
-  matches the device values that replace it after the app has run.
+  version `2026-05`. The picker's sample previews show the Android release for the
+  device's API level (17 here) and a fixed example Play level, `2026-05`, which
+  matches the device's level that replaces it after the app has run.
 - In Home settings → Suggestions, turn off suggestions on the Home screen, so the
   dock shows no suggested app.
 - All images: 1080×1920, default 420 dpi and font scale 1.0. The overview uses

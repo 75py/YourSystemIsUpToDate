@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Android 12+ picker preview. Runtime text is populated only by the provider. -->
+<!-- Android 12+ picker preview: widget_android_version_standard_short with a sample version. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     style="@style/AndroidVersionWidget.Short"
