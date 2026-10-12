@@ -117,8 +117,9 @@ sections instead of adding duplicate tags.
 Upload the versioned PNG files in `screenshots/<locale>/` in the order below under phone screenshots for
 each language. The images are 1080×1920 and show the running app's widgets and
 launcher shortcut. Home screen dates and version values come from the capture
-emulator; the widget picker uses the app's built-in preview. These values are
-examples, not claims that a device is up to date.
+emulator. The widget picker shows the app's built-in sample preview; on Android 15
+and later, once the app or a widget has run, it shows the device's own values
+instead. These values are examples, not claims that a device is up to date.
 
 | Order | Japanese | English | Content |
 | --- | --- | --- | --- |
@@ -152,8 +153,9 @@ examples, not claims that a device is up to date.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
 - Actual device values: security patch `2026-07-05`; Google Play module metadata
-  version `2026-05`. The picker preview shows the Android release for the
-  device's API level (17 here) and a fixed example Play level, `2026-05`.
+  version `2026-05`. The sample picker preview shows the Android release for the
+  device's API level (17 here) and a fixed example Play level, `2026-05`, so it
+  matches the device values that replace it after the app has run.
 - All images: 1080×1920, default 420 dpi and font scale 1.0. The overview uses
   2×1 widgets; the details image uses a 4×2 Android widget so API level is visible.
 - Switch the system language between Japanese and English (United States).

@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.widget.RemoteViews
 
 class GooglePlayUpdateWidgetProvider : AppWidgetProvider() {
@@ -22,9 +23,14 @@ class GooglePlayUpdateWidgetProvider : AppWidgetProvider() {
         }
 
         private fun updateWidgets(context: Context, manager: AppWidgetManager, ids: IntArray) {
-            if (ids.isEmpty()) return
-            val version = mainlineVersionDisplay(GooglePlaySystemUpdate.version(context))
-                ?: context.getString(R.string.play_update_unknown)
+            // The picker preview is updated even when no widget is placed yet.
+            val updatesPreview = Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM
+            if (ids.isEmpty() && !updatesPreview) return
+            val availableVersion = mainlineVersionDisplay(GooglePlaySystemUpdate.version(context))
+            if (availableVersion != null) {
+                updatePickerPreview(context, manager, availableVersion)
+            }
+            val version = availableVersion ?: context.getString(R.string.play_update_unknown)
             ids.forEach { id ->
                 val intent = Intent(context, StartActivity::class.java)
                     .setAction(ACTION_OPEN_PLAY_UPDATE)
@@ -37,6 +43,22 @@ class GooglePlayUpdateWidgetProvider : AppWidgetProvider() {
                     setOnClickPendingIntent(android.R.id.background, tap)
                 }
                 manager.updateAppWidget(id, views)
+            }
+        }
+
+        // Without a level, the picker keeps the sample from previewLayout.
+        private fun updatePickerPreview(
+            context: Context,
+            manager: AppWidgetManager,
+            version: String,
+        ) {
+            manager.updatePickerPreview(
+                ComponentName(context, GooglePlayUpdateWidgetProvider::class.java),
+            ) {
+                RemoteViews(
+                    context.packageName,
+                    R.layout.widget_google_play_update_preview,
+                ).apply { setTextViewText(R.id.play_widget_version, version) }
             }
         }
     }

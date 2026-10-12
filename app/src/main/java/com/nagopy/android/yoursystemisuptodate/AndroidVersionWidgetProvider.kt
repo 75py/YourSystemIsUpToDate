@@ -21,6 +21,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         appWidgetIds: IntArray,
     ) {
         updateWidgets(context, appWidgetManager, appWidgetIds)
+        updatePickerPreview(context, appWidgetManager)
     }
 
     override fun onAppWidgetOptionsChanged(
@@ -41,6 +42,21 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 appWidgetManager,
                 appWidgetManager.getAppWidgetIds(provider),
             )
+            updatePickerPreview(context, appWidgetManager)
+        }
+
+        // The size map lets the picker use the layout that fits its cell, as a placed
+        // widget does.
+        private fun updatePickerPreview(context: Context, appWidgetManager: AppWidgetManager) {
+            appWidgetManager.updatePickerPreview(
+                ComponentName(context, AndroidVersionWidgetProvider::class.java),
+            ) {
+                createResponsiveRemoteViews(
+                    context,
+                    currentAndroidVersionWidgetData(),
+                    tapIntent = null,
+                )
+            }
         }
 
         private fun updateWidgets(
@@ -77,7 +93,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         private fun createResponsiveRemoteViews(
             context: Context,
             data: AndroidVersionWidgetData,
-            tapIntent: PendingIntent,
+            tapIntent: PendingIntent?,
         ): RemoteViews {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
                 error("Responsive RemoteViews require Android 12 or later")
@@ -203,20 +219,24 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             return RemoteViews(landscape, portrait)
         }
 
+        // A null tapIntent builds the picker preview: it opens nothing, so it neither
+        // handles a tap nor announces the action.
         private fun createRemoteViews(
             context: Context,
             layout: AndroidVersionWidgetLayout,
             data: AndroidVersionWidgetData,
-            tapIntent: PendingIntent,
+            tapIntent: PendingIntent?,
         ): RemoteViews = RemoteViews(context.packageName, layout.layoutResource).apply {
             val content = selectAndroidVersionWidgetContent(data, layout)
             setTextViewText(R.id.widget_version, content.version)
             configureMetadata(layout, content)
             setContentDescription(
                 android.R.id.background,
-                buildAccessibilityDescription(context, content),
+                buildAccessibilityDescription(context, content, announceAction = tapIntent != null),
             )
-            setOnClickPendingIntent(android.R.id.background, tapIntent)
+            if (tapIntent != null) {
+                setOnClickPendingIntent(android.R.id.background, tapIntent)
+            }
         }
 
         private val AndroidVersionWidgetLayout.layoutResource: Int
@@ -332,6 +352,7 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         private fun buildAccessibilityDescription(
             context: Context,
             content: AndroidVersionWidgetContent,
+            announceAction: Boolean,
         ): String = buildAndroidVersionWidgetAccessibilityDescription(
             androidVersion = context.getString(
                 R.string.widget_accessibility_android_version,
@@ -346,7 +367,11 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             apiLevel = content.apiLevel?.let {
                 context.getString(R.string.widget_accessibility_api_level, it)
             },
-            action = context.getString(R.string.widget_accessibility_open_system_update),
+            action = if (announceAction) {
+                context.getString(R.string.widget_accessibility_open_system_update)
+            } else {
+                null
+            },
             separator = context.getString(R.string.widget_accessibility_separator),
         )
 
@@ -392,7 +417,7 @@ internal fun buildAndroidVersionWidgetAccessibilityDescription(
     securityPatch: String?,
     buildId: String?,
     apiLevel: String?,
-    action: String,
+    action: String?,
     separator: String,
 ): String = listOfNotNull(
     androidVersion,

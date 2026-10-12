@@ -61,4 +61,19 @@ class AndroidVersionWidgetAccessibilityTest {
             ),
         )
     }
+
+    @Test
+    fun buildDescription_withoutActionDescribesOnlyTheValues() {
+        assertEquals(
+            "Android 17. Security patch 2026-08-05",
+            buildAndroidVersionWidgetAccessibilityDescription(
+                androidVersion = "Android 17",
+                securityPatch = "Security patch 2026-08-05",
+                buildId = null,
+                apiLevel = null,
+                action = null,
+                separator = ". ",
+            ),
+        )
+    }
 }
