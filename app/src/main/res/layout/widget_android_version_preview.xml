@@ -2,18 +2,18 @@
 <!-- Android 12+ picker preview. Runtime text is populated only by the provider. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
-    style="@style/AndroidVersionWidgetShort"
+    style="@style/AndroidVersionWidget.Short"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        style="@style/AndroidVersionWidgetShortText.Label"
+        style="@style/AndroidVersionWidgetText.Label.Short"
         android:text="@string/widget_android_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        style="@style/AndroidVersionWidgetShortText.Value"
+        style="@style/AndroidVersionWidgetText.Value.Short"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/widget_preview_version" />

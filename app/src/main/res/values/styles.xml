@@ -1,7 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Shared by the short Android widget and its Android 12+ picker preview. -->
-    <style name="AndroidVersionWidgetShort">
+    <!-- Shared by every Android version widget layout and the Android 12+ picker preview.
+         Sizes, fonts and spacing differ per layout and stay in the layouts. -->
+    <style name="AndroidVersionWidget">
         <item name="android:background">@drawable/widget_background</item>
+    </style>
+
+    <style name="AndroidVersionWidgetText">
+        <item name="android:ellipsize">end</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="AndroidVersionWidgetText.Label">
+        <item name="android:textColor">@color/widget_text_secondary</item>
+    </style>
+
+    <style name="AndroidVersionWidgetText.Value">
+        <item name="android:textColor">@color/widget_text_primary</item>
+    </style>
+
+    <!-- The short layout and its picker preview also share their sizes. The padding is
+         written per edge because aapt2 back-ports paddingHorizontal/paddingVertical below
+         API 26 only when they are attributes of a layout, not items of a style. -->
+    <style name="AndroidVersionWidget.Short">
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:paddingStart">12dp</item>
@@ -10,22 +31,15 @@
         <item name="android:paddingBottom">2dp</item>
     </style>
 
-    <style name="AndroidVersionWidgetShortText">
-        <item name="android:ellipsize">end</item>
-        <item name="android:includeFontPadding">false</item>
+    <style name="AndroidVersionWidgetText.Label.Short">
         <item name="android:importantForAccessibility">no</item>
-        <item name="android:maxLines">1</item>
-    </style>
-
-    <style name="AndroidVersionWidgetShortText.Label">
-        <item name="android:textColor">@color/widget_text_secondary</item>
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="AndroidVersionWidgetShortText.Value">
+    <style name="AndroidVersionWidgetText.Value.Short">
+        <item name="android:importantForAccessibility">no</item>
         <item name="android:layout_marginStart">4dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/widget_text_primary</item>
         <item name="android:textSize">42sp</item>
     </style>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
+    style="@style/AndroidVersionWidget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/widget_background"
     android:clickable="true"
     android:contentDescription="@string/widget_initial_content_description"
     android:focusable="true"
@@ -22,25 +22,19 @@
 
         <TextView
             android:id="@+id/widget_android_label"
+            style="@style/AndroidVersionWidgetText.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:includeFontPadding="false"
-            android:maxLines="1"
             android:text="@string/widget_android_label"
-            android:textColor="@color/widget_text_secondary"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/widget_version"
+            style="@style/AndroidVersionWidgetText.Value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:textColor="@color/widget_text_primary"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -61,29 +55,23 @@
 
             <TextView
                 android:id="@+id/widget_security_patch_label"
+                style="@style/AndroidVersionWidgetText.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:ellipsize="end"
-                android:includeFontPadding="false"
-                android:maxLines="1"
                 android:text="@string/widget_security_patch_compact_label"
-                android:textColor="@color/widget_text_secondary"
                 android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/widget_security_patch"
+                style="@style/AndroidVersionWidgetText.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="4dp"
                 android:layout_toEndOf="@id/widget_security_patch_label"
-                android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:textColor="@color/widget_text_primary"
                 android:textSize="13sp" />
 
         </RelativeLayout>
@@ -97,29 +85,23 @@
 
             <TextView
                 android:id="@+id/widget_build_id_label"
+                style="@style/AndroidVersionWidgetText.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:ellipsize="end"
-                android:includeFontPadding="false"
-                android:maxLines="1"
                 android:text="@string/widget_build_id_label"
-                android:textColor="@color/widget_text_secondary"
                 android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/widget_build_id"
+                style="@style/AndroidVersionWidgetText.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="4dp"
                 android:layout_toEndOf="@id/widget_build_id_label"
-                android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:textColor="@color/widget_text_primary"
                 android:textSize="13sp" />
 
         </RelativeLayout>

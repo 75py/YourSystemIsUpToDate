@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
+    style="@style/AndroidVersionWidget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/widget_background"
     android:clickable="true"
     android:contentDescription="@string/widget_initial_content_description"
     android:focusable="true"
@@ -15,28 +15,22 @@
 
     <TextView
         android:id="@+id/widget_android_label"
+        style="@style/AndroidVersionWidgetText.Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
         android:fontFamily="sans-serif-condensed"
-        android:includeFontPadding="false"
         android:importantForAccessibility="no"
-        android:maxLines="1"
         android:text="@string/widget_android_label"
-        android:textColor="@color/widget_text_secondary"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/widget_version"
+        style="@style/AndroidVersionWidgetText.Value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:includeFontPadding="false"
         android:importantForAccessibility="no"
-        android:maxLines="1"
-        android:textColor="@color/widget_text_primary"
         android:textSize="36sp" />
 
     <LinearLayout
@@ -49,26 +43,20 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/AndroidVersionWidgetText.Label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:maxLines="1"
             android:text="@string/widget_security_patch_compact_label"
-            android:textColor="@color/widget_text_secondary"
             android:textSize="11sp" />
 
         <TextView
             android:id="@+id/widget_security_patch"
+            style="@style/AndroidVersionWidgetText.Value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:textColor="@color/widget_text_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
 

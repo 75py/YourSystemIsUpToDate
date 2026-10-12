@@ -152,7 +152,8 @@ examples, not claims that a device is up to date.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
 - Actual device values: security patch `2026-07-05`; Google Play module metadata
-  version `2026-05`. The picker preview uses the same example values.
+  version `2026-05`. The picker preview shows the Android release for the
+  device's API level (17 here) and a fixed example Play level, `2026-05`.
 - All images: 1080×1920, default 420 dpi and font scale 1.0. The overview uses
   2×1 widgets; the details image uses a 4×2 Android widget so API level is visible.
 - Switch the system language between Japanese and English (United States).

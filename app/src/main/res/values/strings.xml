@@ -4,7 +4,9 @@
     <string name="system_update_open_failed">Unable to open the system update screen.</string>
     <string name="widget_name">Android version</string>
     <string name="widget_description">Shows Android version. Tap for OS updates.</string>
-    <string name="widget_preview_version" translatable="false">17</string>
+    <!-- Version in the Android 12+ picker preview. values-v33 and later override it, so
+         the preview shows the release of the device it runs on; add one per release. -->
+    <string name="widget_preview_version" translatable="false">12</string>
     <string name="widget_android_label">Android</string>
     <string name="widget_security_patch_compact_label">Patch</string>
     <string name="widget_build_id_label">Build</string>
