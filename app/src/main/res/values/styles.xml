@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Shared by every Android version widget layout and the Android 12+ picker preview.
-         Sizes, spacing and accessibility attributes differ per layout and stay in the
-         layouts. -->
+         Accessibility attributes stay in the layouts, and so do sizes and spacing, except
+         for the short layout below. -->
     <style name="AndroidVersionWidget">
         <item name="android:background">@drawable/widget_background</item>
     </style>
@@ -21,7 +21,8 @@
         <item name="android:textColor">@color/widget_text_primary</item>
     </style>
 
-    <!-- The short layout and its picker preview also share their sizes. The padding is
+    <!-- The short layout and its picker preview also share their sizes and spacing, so
+         those live in these styles rather than in either layout. The padding is
          written per edge because aapt2 back-ports paddingHorizontal/paddingVertical below
          API 26 only when they are attributes of a layout, not items of a style. -->
     <style name="AndroidVersionWidget.Short">
