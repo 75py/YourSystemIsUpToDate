@@ -48,10 +48,12 @@
          preview, including suffixes such as "2024-05-01 R" (12 characters). The lower
          bounds use dp so they do not grow at 200% font scale; longer arbitrary values
          can still be ellipsized in a single cell. -->
-    <style name="PlayWidget" tools:targetApi="o">
+    <style name="PlayWidget">
         <item name="android:background">@drawable/widget_background</item>
-        <item name="android:paddingHorizontal">4dp</item>
-        <item name="android:paddingVertical">2dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
     </style>
 
     <style name="PlayWidgetText" tools:targetApi="o">
