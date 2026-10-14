@@ -9,14 +9,16 @@
 
     <TextView
         style="@style/AndroidVersionWidgetText.Label.Short"
-        android:text="@string/widget_android_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:text="@string/widget_android_label" />
 
     <TextView
         style="@style/AndroidVersionWidgetText.Value.Short"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
         android:text="@string/widget_preview_version" />
 
 </LinearLayout>

@@ -34,7 +34,6 @@
             style="@style/AndroidVersionWidgetText.Value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
             android:textSize="43sp" />
 
     </LinearLayout>
@@ -101,7 +100,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="4dp"
                 android:layout_toEndOf="@id/widget_build_id_label"
-                android:fontFamily="sans-serif-medium"
                 android:textSize="13sp" />
 
         </RelativeLayout>

@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Shared by every Android version widget layout and the Android 12+ picker preview.
-         Sizes, fonts and spacing differ per layout and stay in the layouts. -->
+         Sizes, spacing and accessibility attributes differ per layout and stay in the
+         layouts. -->
     <style name="AndroidVersionWidget">
         <item name="android:background">@drawable/widget_background</item>
     </style>
@@ -16,6 +17,7 @@
     </style>
 
     <style name="AndroidVersionWidgetText.Value">
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/widget_text_primary</item>
     </style>
 
@@ -32,14 +34,11 @@
     </style>
 
     <style name="AndroidVersionWidgetText.Label.Short">
-        <item name="android:importantForAccessibility">no</item>
         <item name="android:textSize">20sp</item>
     </style>
 
     <style name="AndroidVersionWidgetText.Value.Short">
-        <item name="android:importantForAccessibility">no</item>
         <item name="android:layout_marginStart">4dp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">42sp</item>
     </style>
 

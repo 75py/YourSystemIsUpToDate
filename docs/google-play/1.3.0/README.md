@@ -145,7 +145,10 @@ level. These values are examples, not claims that a device is up to date.
 
 - App: debug build of version 1.3.0 (version code 6), with the widget resources
   prepared in [PR #6](https://github.com/75py/YourSystemIsUpToDate/pull/6).
-  All ten images were captured in one pass on 2026-10-12.
+  All ten images were captured in one pass on 2026-10-12. At that time a test
+  build, since removed, generated the picker previews from the device's values;
+  both preview areas in image 5 are pixel-identical to the built-in sample
+  previews captured earlier in the PR, so the image represents them as well.
 - Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
