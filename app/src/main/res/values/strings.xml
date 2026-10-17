@@ -4,10 +4,9 @@
     <string name="system_update_open_failed">Unable to open the system update screen.</string>
     <string name="widget_name">Android version</string>
     <string name="widget_description">Shows Android version. Tap for OS updates.</string>
-    <!-- Sample version in the Android 12+ picker preview. values-v33 and later override it,
-         so the sample matches the device up to the newest release listed there; add an
-         override for each new Android release. -->
-    <string name="widget_preview_version" translatable="false">12</string>
+    <!-- Fixed sample version in the Android 12+ picker preview, like the Play sample below;
+         the placed widget shows the device's own version. -->
+    <string name="widget_preview_version" translatable="false">17</string>
     <string name="widget_android_label">Android</string>
     <string name="widget_security_patch_compact_label">Patch</string>
     <string name="widget_build_id_label">Build</string>
@@ -26,7 +25,7 @@
     <string name="play_widget_label">Google Play</string>
     <string name="play_widget_name">Google Play update</string>
     <string name="play_widget_preview_version" translatable="false">2026-05</string>
-    <string name="play_widget_description">Play system update level. Tap to open.</string>
+    <string name="play_widget_description">Shows Play system update level. Tap for settings.</string>
     <string name="play_widget_initial_content_description">Google Play system update level. Opens Google Play system update settings.</string>
     <string name="play_widget_accessibility">Google Play system update: %1$s. Opens Google Play system update settings.</string>
 </resources>
