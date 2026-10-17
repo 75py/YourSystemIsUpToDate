@@ -57,7 +57,6 @@
     </style>
 
     <style name="PlayWidgetText" tools:targetApi="o">
-        <item name="android:importantForAccessibility">no</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>

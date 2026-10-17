@@ -70,7 +70,7 @@ Quick access to system update settings, with home screen widgets for your Androi
 Update shortcuts
 • Tap the app icon to open your device's system update settings.
 • On Android 10 and later, long-press the app icon and choose “Play update” to open Google Play system update settings.
-• On supported launchers, touch and hold “Play update” and drag it to your home screen to keep it as a separate shortcut.
+• On supported launchers, long-press “Play update” and drag it to your home screen to keep it as a separate shortcut.
 
 Android version widget
 • Shows your device's Android version.
@@ -103,7 +103,7 @@ sections instead of adding duplicate tags.
 <ja-JP>
 ・Android 10以降で、アプリアイコンの長押しから「Play更新」を開けるようになりました。対応するホームアプリでは、ホーム画面にも配置できます。
 ・導入済みのGoogle Playシステム更新の更新レベルを表示するウィジェットを追加しました。タップすると更新画面を開けます。
-・既存のAndroidバージョンウィジェットと並べて利用できます。
+・Google Play更新ウィジェットは、既存のAndroidバージョンウィジェットと並べて利用できます。
 </ja-JP>
 <en-US>
 • On Android 10 and later, long-press the app icon and choose “Play update” to open Google Play system update settings. On supported launchers, you can also drag the shortcut to your home screen.
