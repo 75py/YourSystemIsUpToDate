@@ -13,11 +13,10 @@ capture details.
   README.md
   screenshots/
     ja-JP/
-      01-overview.png
+      01-android-details.png
       02-play-shortcut.png
-      03-android-details.png
-      04-system-update.png
-      05-widget-picker.png
+      03-system-update.png
+      04-widget-picker.png
     en-US/
       ...
 ```

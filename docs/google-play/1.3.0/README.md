@@ -117,27 +117,25 @@ sections instead of adding duplicate tags.
 Upload the versioned PNG files in `screenshots/<locale>/` in the order below under phone screenshots for
 each language. The images are 1080×1920 and show the running app's widgets and
 launcher shortcut. Home screen dates and version values come from the capture
-emulator. The widget picker shows the app's built-in sample previews: the Android
-release for the device's API level, up to Android 17, and a fixed example Play
-level. These values are examples, not claims that a device is up to date.
+emulator. The widget picker shows the app's built-in sample previews, a fixed
+example Android release and Play level. These values are examples, not claims
+that a device is up to date.
 
 | Order | Japanese | English | Content |
 | --- | --- | --- | --- |
-| 1 | [ja-JP/01-overview.png](screenshots/ja-JP/01-overview.png) | [en-US/01-overview.png](screenshots/en-US/01-overview.png) | Android and Google Play widgets together |
+| 1 | [ja-JP/01-android-details.png](screenshots/ja-JP/01-android-details.png) | [en-US/01-android-details.png](screenshots/en-US/01-android-details.png) | Expanded Android version widget with the Google Play widget |
 | 2 | [ja-JP/02-play-shortcut.png](screenshots/ja-JP/02-play-shortcut.png) | [en-US/02-play-shortcut.png](screenshots/en-US/02-play-shortcut.png) | Long-press menu with Play update |
-| 3 | [ja-JP/03-android-details.png](screenshots/ja-JP/03-android-details.png) | [en-US/03-android-details.png](screenshots/en-US/03-android-details.png) | Expanded Android version widget |
-| 4 | [ja-JP/04-system-update.png](screenshots/ja-JP/04-system-update.png) | [en-US/04-system-update.png](screenshots/en-US/04-system-update.png) | System update screen opened by the app |
-| 5 | [ja-JP/05-widget-picker.png](screenshots/ja-JP/05-widget-picker.png) | [en-US/05-widget-picker.png](screenshots/en-US/05-widget-picker.png) | Widget picker showing both widget types |
+| 3 | [ja-JP/03-system-update.png](screenshots/ja-JP/03-system-update.png) | [en-US/03-system-update.png](screenshots/en-US/03-system-update.png) | System update screen opened by the app |
+| 4 | [ja-JP/04-widget-picker.png](screenshots/ja-JP/04-widget-picker.png) | [en-US/04-widget-picker.png](screenshots/en-US/04-widget-picker.png) | Widget picker showing both widget types |
 
 ### Screenshot alternative text
 
 | Image | 日本語 | English |
 | --- | --- | --- |
-| 1 | ホーム画面に並べたAndroidバージョンとGoogle Playシステム更新のウィジェット | Android version and Google Play system update widgets together on the home screen. |
+| 1 | Androidバージョン、セキュリティパッチ、ビルドID、APIレベルを表示するウィジェットと、Google Playシステム更新のウィジェット | An expanded widget showing the Android version, security patch, build ID, and API level, with the Google Play system update widget. |
 | 2 | アプリアイコンを長押しすると表示される「Play更新」ショートカット | The Play update shortcut in the app icon's long-press menu. |
-| 3 | Androidバージョン、セキュリティパッチ、ビルドID、APIレベルを表示するウィジェット | An expanded widget showing the Android version, security patch, build ID, and API level. |
-| 4 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
-| 5 | 「Android バージョン」と「Google Play更新」を選べるウィジェット一覧 | The widget picker with Android version and Google Play update widgets. |
+| 3 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
+| 4 | 「Android バージョン」と「Google Play更新」を選べるウィジェット一覧 | The widget picker with Android version and Google Play update widgets. |
 
 ## Publishing notes
 
@@ -145,27 +143,24 @@ level. These values are examples, not claims that a device is up to date.
 
 - App: debug build of version 1.3.0 (version code 6), with the widget resources
   prepared in [PR #6](https://github.com/75py/YourSystemIsUpToDate/pull/6).
-  All ten images were captured in one pass on 2026-10-12. At that time a test
-  build, since removed, generated the picker previews from the device's values;
-  both preview areas in image 5 are pixel-identical to the built-in sample
-  previews captured earlier in the PR, so the image represents them as well.
+  Images 1–3 were captured on 2026-10-12. The widget picker, image 4, was
+  recaptured on 2026-10-17 with the final picker previews and descriptions.
 - Device: Pixel 2 profile, Android 17 / API 37 Google Play emulator, Pixel Launcher.
   SDK image: `system-images;android-37.1;google_apis_playstore_ps16k;arm64-v8a`
   revision 9, build `CP31.260623.012`.
 - Actual device values: security patch `2026-07-05`; Google Play module metadata
-  version `2026-05`. The picker's sample previews show the Android release for the
-  device's API level (17 here) and a fixed example Play level, `2026-05`, which
-  matches this device.
+  version `2026-05`. The picker's sample previews show fixed examples, Android 17
+  and Play level `2026-05`, which match this device.
 - In Home settings → Suggestions, turn off suggestions on the Home screen, so the
   dock shows no suggested app.
-- All images: 1080×1920, default 420 dpi and font scale 1.0. The overview uses
-  2×1 widgets; the details image uses a 4×2 Android widget so API level is visible.
+- All images: 1080×1920, default 420 dpi and font scale 1.0. Image 1 uses a
+  4×2 Android widget so API level is visible, beside a 2×1 Google Play widget.
 - Switch the system language between Japanese and English (United States).
 - Clear notifications, then use System UI demo mode to show a consistent 10:00 clock
   with Wi-Fi and battery icons only.
   The update screen's last-check time is the device's actual time.
 - Capture with `adb exec-out screencap -p`. Export as 24-bit RGB PNG without
-  changing the captured screen content. Image 4 shows the system update screen
+  changing the captured screen content. Image 3 shows the system update screen
   reached by tapping the app icon. The Japanese app title is abbreviated by the
   launcher's fixed-width picker header; widget names and descriptions fit at
   the default settings.
