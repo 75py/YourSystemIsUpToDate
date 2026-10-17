@@ -11,6 +11,9 @@ capture details.
 ```text
 <version>/
   README.md
+  feature-graphic/
+    ja-JP.png
+    en-US.png
   screenshots/
     ja-JP/
       01-android-details.png
