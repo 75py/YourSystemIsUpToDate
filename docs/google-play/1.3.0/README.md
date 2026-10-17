@@ -137,6 +137,20 @@ that a device is up to date.
 | 3 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
 | 4 | 「Android バージョン」と「Google Play更新」を選べるウィジェット一覧 | The widget picker with Android version and Google Play update widgets. |
 
+## Feature graphic
+
+Upload the matching file as each language's feature graphic. Both are 1024×500,
+24-bit RGB PNG.
+
+| Japanese | English |
+| --- | --- |
+| [ja-JP.png](feature-graphic/ja-JP.png) | [en-US.png](feature-graphic/en-US.png) |
+
+The widgets are cropped from screenshot 1 of the same language, with the widget's
+rounded corners kept, so they match the app. The icons are the app's launcher and
+Play update icons. Text is set in Hiragino Sans and avoids saying a device is up
+to date.
+
 ## Publishing notes
 
 ### Capture setup
