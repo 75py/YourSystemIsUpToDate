@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12+ picker preview: widget_android_version_standard_short with a sample version.
+     A separate layout, so the preview carries no tap target or action description. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/background"
+    style="@style/AndroidVersionWidget.Short"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/AndroidVersionWidgetText.Label.Short"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:text="@string/widget_android_label" />
+
+    <TextView
+        style="@style/AndroidVersionWidgetText.Value.Short"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:text="@string/widget_preview_version" />
+
+</LinearLayout>

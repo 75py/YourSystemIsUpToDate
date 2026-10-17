@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:importantForAccessibility="yes"
+    android:contentDescription="@string/play_widget_initial_content_description"
     android:clickable="true"
     android:focusable="true">
 
@@ -14,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
+        android:importantForAccessibility="no"
         android:text="@string/play_widget_label" />
 
     <TextView
@@ -21,5 +24,6 @@
         style="@style/PlayWidgetText.Value"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9" />
+        android:layout_weight="9"
+        android:importantForAccessibility="no" />
 </LinearLayout>

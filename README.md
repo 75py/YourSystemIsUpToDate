@@ -12,7 +12,7 @@ This app was originally named **YourSystemIsUpToDate**. We decided to rename it 
 
 - **Simple and Intuitive**: One-tap access to system update settings.
 - **Google Play System Updates**: On Android 10 and later, long-press the app icon and choose **Play update** to open Google Play system update settings. Drag the shortcut to the home screen to keep it there.
-- **Widgets**: Choose Android version or Google Play system update in the widget picker. Each widget opens its own update screen.
+- **Widgets**: Choose **Android version** or **Google Play update** in the widget picker. Each widget opens its own update screen.
 - **Humorous Twist**: Most of the time, you'll be greeted with the message, "Your system is up to date!" 😉
 
 ## Google Play system update
@@ -25,13 +25,13 @@ On Android 10 and later, long-press the app icon and choose **Play update** to o
 Play update screen directly. On supported launchers, drag that shortcut to the home
 screen to place it as its own icon.
 
-Or add **Google Play system update** from the launcher’s widget picker to display the
+Or add **Google Play update** from the launcher’s widget picker to display the
 installed update level. It can coexist with the existing Android version widget;
 each widget always opens its respective update screen.
 A Google Play system update takes effect when the device restarts, so the widget
 refreshes after a restart and whenever the app is opened. Tap it to check for updates.
 
-The date is read from `com.google.android.modulemetadata`’s `versionName`, following
+The update level is read from `com.google.android.modulemetadata`’s `versionName`, following
 [Google’s documented Mainline version lookup](https://developers.google.com/android/work/security-posture-signals#retrieve_mainline_version).
 Devices that declare AOSP’s `com.android.modulemetadata` as the provider are read from
 that package instead.
@@ -46,6 +46,9 @@ screen shows an error message without crashing. No root, device administrator,
 network permission, or broad package-query permission is needed.
 
 ## Development and verification
+
+Store listing copy, release notes, and screenshots are maintained in
+[Google Play release assets](docs/google-play/README.md).
 
 Use JDK 17 and Android SDK 36:
 
@@ -62,7 +65,7 @@ Before release, check on a Google Play-enabled device:
 - Tap the icon and the pinned shortcut alternately, pressing Home in between: each
   must still open its own screen.
 - Place both widget types; each opens its own destination.
-- Compare the Play widget date with Settings, including after applying an update
+- Compare the Play widget update level with Settings, including after applying an update
   and restarting the device. Reopening this app should refresh the displayed value.
 - Check the Play widget at 2×1 and resized down to 1×1, at large font sizes, in
   light/dark mode, and with TalkBack.

@@ -50,7 +50,7 @@
             android:name=".GooglePlayUpdateWidgetProvider"
             android:enabled="@bool/google_play_update_supported"
             android:exported="false"
-            android:label="@string/play_update_label">
+            android:label="@string/play_widget_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
