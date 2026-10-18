@@ -1,33 +1,29 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    compileSdk 36
+    compileSdk = 36
 
     defaultConfig {
-        applicationId "com.nagopy.android.yoursystemisuptodate"
-        minSdkVersion 31
-        targetSdkVersion 36
-        versionCode 6
-        versionName "1.3.0"
+        applicationId = "com.nagopy.android.yoursystemisuptodate"
+        minSdk = 31
+        targetSdk = 36
+        versionCode = 6
+        versionName = "1.3.0"
     }
     buildTypes {
         release {
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources = true
+            minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-    namespace "com.nagopy.android.yoursystemisuptodate"
+    namespace = "com.nagopy.android.yoursystemisuptodate"
 }
 
 dependencies {
