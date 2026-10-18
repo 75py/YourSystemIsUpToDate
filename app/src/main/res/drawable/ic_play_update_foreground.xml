@@ -1,7 +1,7 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="24" android:viewportHeight="24">
-    <!-- Same glyph as ic_play_update, scaled into the adaptive icon safe zone. -->
+    <!-- The Play update glyph, scaled into the adaptive icon safe zone. -->
     <group android:scaleX="0.551" android:scaleY="0.551"
         android:translateX="5.388" android:translateY="5.388">
         <path android:fillColor="@android:color/white"

@@ -4,7 +4,7 @@
     <string name="system_update_open_failed">Unable to open the system update screen.</string>
     <string name="widget_name">Android version</string>
     <string name="widget_description">Shows Android version. Tap for OS updates.</string>
-    <!-- Fixed sample version in the Android 12+ picker preview, like the Play sample below;
+    <!-- Fixed sample version in the picker preview, like the Play sample below;
          the placed widget shows the device's own version. -->
     <string name="widget_preview_version" translatable="false">17</string>
     <string name="widget_android_label">Android</string>

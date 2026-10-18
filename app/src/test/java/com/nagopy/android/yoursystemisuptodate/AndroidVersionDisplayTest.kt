@@ -5,24 +5,12 @@ import org.junit.Test
 
 class AndroidVersionDisplayTest {
     @Test
-    fun selectAndroidVersionDisplay_belowApi30UsesRelease() {
-        assertEquals(
-            "release",
-            selectAndroidVersionDisplay(
-                sdkInt = 29,
-                release = "release",
-            ),
-        )
-    }
-
-    @Test
-    fun selectAndroidVersionDisplay_api30Through32UsesReleaseOrCodename() {
-        listOf(30, 31, 32).forEach { sdkInt ->
+    fun selectAndroidVersionDisplay_api31And32UsesReleaseOrCodename() {
+        listOf(31, 32).forEach { sdkInt ->
             assertEquals(
                 "release-or-codename",
                 selectAndroidVersionDisplay(
                     sdkInt = sdkInt,
-                    release = "release",
                     releaseOrCodename = "release-or-codename",
                 ),
             )
@@ -36,7 +24,6 @@ class AndroidVersionDisplayTest {
                 "release-or-preview-display",
                 selectAndroidVersionDisplay(
                     sdkInt = sdkInt,
-                    release = "release",
                     releaseOrCodename = "release-or-codename",
                     releaseOrPreviewDisplay = "release-or-preview-display",
                 ),

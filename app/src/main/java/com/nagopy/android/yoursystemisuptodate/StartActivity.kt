@@ -4,10 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Intent
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -51,11 +48,10 @@ class StartActivity : Activity() {
     }
 
     private fun findSystemUpdateActivity(intent: Intent): ComponentName? {
-        val resolveInfos = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            packageManager.queryIntentActivities(intent, PackageManager.MATCH_SYSTEM_ONLY)
-        } else {
-            packageManager.queryIntentActivities(intent, 0).filter { it.isSystemActivity() }
-        }
+        val resolveInfos = packageManager.queryIntentActivities(
+            intent,
+            PackageManager.MATCH_SYSTEM_ONLY,
+        )
         val candidates = resolveInfos.mapNotNull { resolveInfo ->
             val activityInfo = resolveInfo.activityInfo ?: return@mapNotNull null
             SystemUpdateActivityCandidate(
@@ -66,11 +62,6 @@ class StartActivity : Activity() {
         }
         val selected = selectSystemUpdateActivity(candidates) ?: return null
         return ComponentName(selected.packageName, selected.className)
-    }
-
-    private fun ResolveInfo.isSystemActivity(): Boolean {
-        val flags = activityInfo?.applicationInfo?.flags ?: return false
-        return flags and ApplicationInfo.FLAG_SYSTEM != 0
     }
 
     private fun showOpenFailure() {

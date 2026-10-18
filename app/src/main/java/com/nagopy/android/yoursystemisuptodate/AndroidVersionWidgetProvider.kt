@@ -7,12 +7,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.Bundle
 import android.util.SizeF
 import android.view.View
 import android.widget.RemoteViews
-import kotlin.math.max
-import kotlin.math.min
 
 class AndroidVersionWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(
@@ -21,15 +18,6 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         appWidgetIds: IntArray,
     ) {
         updateWidgets(context, appWidgetManager, appWidgetIds)
-    }
-
-    override fun onAppWidgetOptionsChanged(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
-        newOptions: Bundle?,
-    ) {
-        updateWidget(context, appWidgetManager, appWidgetId, newOptions)
     }
 
     companion object {
@@ -57,21 +45,13 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             context: Context,
             appWidgetManager: AppWidgetManager,
             appWidgetId: Int,
-            suppliedOptions: Bundle? = null,
         ) {
             val data = currentAndroidVersionWidgetData()
             val tapIntent = createTapIntent(context, appWidgetId)
-            val remoteViews = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                createResponsiveRemoteViews(context, data, tapIntent)
-            } else {
-                createLegacyRemoteViews(
-                    context = context,
-                    options = suppliedOptions ?: appWidgetManager.getAppWidgetOptions(appWidgetId),
-                    data = data,
-                    tapIntent = tapIntent,
-                )
-            }
-            appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
+            appWidgetManager.updateAppWidget(
+                appWidgetId,
+                createResponsiveRemoteViews(context, data, tapIntent),
+            )
         }
 
         private fun createResponsiveRemoteViews(
@@ -79,9 +59,6 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
             data: AndroidVersionWidgetData,
             tapIntent: PendingIntent,
         ): RemoteViews {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                error("Responsive RemoteViews require Android 12 or later")
-            }
             val viewsBySize = linkedMapOf(
                 SizeF(MIN_WIDGET_WIDTH_DP, MIN_WIDGET_HEIGHT_DP) to createRemoteViews(
                     context,
@@ -157,50 +134,6 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 ),
             )
             return RemoteViews(viewsBySize)
-        }
-
-        private fun createLegacyRemoteViews(
-            context: Context,
-            options: Bundle,
-            data: AndroidVersionWidgetData,
-            tapIntent: PendingIntent,
-        ): RemoteViews {
-            val minWidth = options.positiveDp(
-                AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH,
-                DEFAULT_WIDGET_WIDTH_DP,
-            )
-            val maxWidth = options.positiveDp(
-                AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH,
-                minWidth,
-            )
-            val minHeight = options.positiveDp(
-                AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT,
-                DEFAULT_WIDGET_HEIGHT_DP,
-            )
-            val maxHeight = options.positiveDp(
-                AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT,
-                minHeight,
-            )
-
-            val portrait = createRemoteViews(
-                context,
-                selectAndroidVersionWidgetLayout(
-                    widthDp = min(minWidth, maxWidth),
-                    heightDp = max(minHeight, maxHeight),
-                ),
-                data,
-                tapIntent,
-            )
-            val landscape = createRemoteViews(
-                context,
-                selectAndroidVersionWidgetLayout(
-                    widthDp = max(minWidth, maxWidth),
-                    heightDp = min(minHeight, maxHeight),
-                ),
-                data,
-                tapIntent,
-            )
-            return RemoteViews(landscape, portrait)
         }
 
         private fun createRemoteViews(
@@ -351,15 +284,10 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
         )
 
         private fun currentAndroidVersionWidgetData(): AndroidVersionWidgetData {
-            val securityPatch = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                Build.VERSION.SECURITY_PATCH
-            } else {
-                null
-            }
             return createAndroidVersionWidgetData(
                 sdkInt = Build.VERSION.SDK_INT,
                 version = currentAndroidVersionDisplay(),
-                securityPatch = securityPatch,
+                securityPatch = Build.VERSION.SECURITY_PATCH,
                 buildId = Build.ID,
             )
         }
@@ -369,21 +297,13 @@ class AndroidVersionWidgetProvider : AppWidgetProvider() {
                 action = ACTION_ANDROID_WIDGET_TAP
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             }
-            val immutableFlag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                PendingIntent.FLAG_IMMUTABLE
-            } else {
-                0
-            }
             return PendingIntent.getActivity(
                 context,
                 appWidgetId,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or immutableFlag,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
             )
         }
-
-        private fun Bundle.positiveDp(key: String, fallback: Float): Float =
-            getInt(key).takeIf { it > 0 }?.toFloat() ?: fallback
     }
 }
 

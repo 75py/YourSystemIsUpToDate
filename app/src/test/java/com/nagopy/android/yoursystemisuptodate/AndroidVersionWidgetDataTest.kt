@@ -6,22 +6,14 @@ import org.junit.Test
 
 class AndroidVersionWidgetDataTest {
     @Test
-    fun createAndroidVersionWidgetData_exposesSecurityPatchFromApi23() {
-        assertNull(
-            createAndroidVersionWidgetData(
-                sdkInt = 22,
-                version = "5.1",
-                securityPatch = "2016-01-01",
-                buildId = "LMY47D",
-            ).securityPatch,
-        )
+    fun createAndroidVersionWidgetData_trimsSecurityPatch() {
         assertEquals(
-            "2016-01-01",
+            "2026-08-05",
             createAndroidVersionWidgetData(
-                sdkInt = 23,
-                version = "6.0",
-                securityPatch = " 2016-01-01 ",
-                buildId = "MRA58K",
+                sdkInt = 37,
+                version = "17",
+                securityPatch = " 2026-08-05 ",
+                buildId = "BP2A.260805.001",
             ).securityPatch,
         )
     }
