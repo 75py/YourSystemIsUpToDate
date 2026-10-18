@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
-import android.os.Build
 import android.util.Log
 
 internal object GooglePlaySystemUpdate {
@@ -41,7 +40,6 @@ internal object GooglePlaySystemUpdate {
     // These actions are used by AOSP Settings but are not guaranteed public SDK APIs.
     // Restrict delivery to Google Play; do not let an arbitrary app intercept the shortcut.
     fun open(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return false
         for (action in listOf(
             "android.settings.MODULE_UPDATE_VERSIONS",
             "android.settings.MODULE_UPDATE_SETTINGS",
@@ -70,7 +68,7 @@ private val KNOWN_METADATA_PACKAGES = listOf(
 )
 
 // Prefer the provider the device declares. Only the known packages are listed in the
-// manifest's <queries>, so any other provider stays invisible on Android 11 and later.
+// manifest's <queries>, so any other provider stays invisible.
 internal fun moduleMetadataPackages(configuredProvider: String?): List<String> =
     (listOfNotNull(configuredProvider?.trim()?.takeUnless { it.isEmpty() }) +
         KNOWN_METADATA_PACKAGES).distinct()

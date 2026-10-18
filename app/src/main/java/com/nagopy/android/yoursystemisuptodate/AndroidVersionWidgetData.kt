@@ -21,7 +21,7 @@ internal fun createAndroidVersionWidgetData(
     buildId: String?,
 ): AndroidVersionWidgetData = AndroidVersionWidgetData(
     version = version,
-    securityPatch = if (sdkInt >= 23) normalizeOptionalBuildValue(securityPatch) else null,
+    securityPatch = normalizeOptionalBuildValue(securityPatch),
     buildId = normalizeOptionalBuildValue(buildId),
     apiLevel = sdkInt.takeIf { it > 0 },
 )

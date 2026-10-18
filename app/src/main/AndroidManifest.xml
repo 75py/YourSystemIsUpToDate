@@ -9,7 +9,6 @@
     </queries>
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -48,7 +47,6 @@
         </receiver>
         <receiver
             android:name=".GooglePlayUpdateWidgetProvider"
-            android:enabled="@bool/google_play_update_supported"
             android:exported="false"
             android:label="@string/play_widget_name">
             <intent-filter>

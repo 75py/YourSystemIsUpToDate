@@ -1,5 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Shared by every Android version widget layout and the Android 12+ picker preview.
+<resources>
+    <!-- Shared by every Android version widget layout and the picker preview.
          Accessibility attributes stay in the layouts, and so do sizes and spacing, except
          for the short layout below. -->
     <style name="AndroidVersionWidget">
@@ -22,9 +22,7 @@
     </style>
 
     <!-- The short layout and its picker preview also share their sizes and spacing, so
-         those live in these styles rather than in either layout. The padding is
-         written per edge because aapt2 back-ports paddingHorizontal/paddingVertical below
-         API 26 only when they are attributes of a layout, not items of a style. -->
+         those live in these styles rather than in either layout. -->
     <style name="AndroidVersionWidget.Short">
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
@@ -56,7 +54,7 @@
         <item name="android:paddingBottom">2dp</item>
     </style>
 
-    <style name="PlayWidgetText" tools:targetApi="o">
+    <style name="PlayWidgetText">
         <item name="android:includeFontPadding">false</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -65,14 +63,14 @@
         <item name="android:autoSizeStepGranularity">1dp</item>
     </style>
 
-    <style name="PlayWidgetText.Label" tools:targetApi="o">
+    <style name="PlayWidgetText.Label">
         <item name="android:gravity">bottom|center_horizontal</item>
         <item name="android:textColor">@color/widget_text_secondary</item>
         <item name="android:textSize">14sp</item>
         <item name="android:autoSizeMaxTextSize">14sp</item>
     </style>
 
-    <style name="PlayWidgetText.Value" tools:targetApi="o">
+    <style name="PlayWidgetText.Value">
         <item name="android:gravity">top|center_horizontal</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/widget_text_primary</item>

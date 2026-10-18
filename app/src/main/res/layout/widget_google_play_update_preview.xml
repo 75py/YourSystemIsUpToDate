@@ -1,4 +1,4 @@
-<!-- Widget picker preview (Android 12+): widget_google_play_update with a sample value. -->
+<!-- Widget picker preview: widget_google_play_update with a sample value. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/background"
     style="@style/PlayWidget"
