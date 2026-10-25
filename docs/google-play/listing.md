@@ -1,12 +1,8 @@
-# Google Play listing — 1.4.0
+# Google Play store listing
 
-Copy each title and description block into its matching main store listing field.
-Update both Japanese and English (United States). For release notes, use the
-combined language-tagged block below in the release editor; retain its tags.
-
-This release raises the minimum Android version to 12 (API 31). The descriptions
-drop the “Android 10 and later” qualifiers from 1.3.0, because every supported
-device now has the Play update shortcut and widget. Everything else is unchanged.
+The current main store listing for Japanese and English (United States). Copy
+each block into its matching Play Console field, without the Markdown headings
+and fences.
 
 ## 日本語（ja-JP）
 
@@ -96,48 +92,41 @@ Source code
 https://github.com/75py/YourSystemIsUpToDate
 ```
 
-## Release notes — paste into the release editor
+## Screenshots
 
-Copy the entire block, including the language tags, into the release notes field.
-Keep each opening and closing tag on its own line. Each language is limited to
-500 Unicode characters. If editing existing notes, replace the matching language
-sections instead of adding duplicate tags.
+Upload the PNG files in `screenshots/<locale>/` in the order below under phone
+screenshots for each language. The images are 1080×1920 and show the running
+app's widgets and launcher shortcut. Home screen dates and version values come
+from the capture emulator. The widget picker shows the app's built-in sample
+previews, a fixed example Android release and Play level. These values are
+examples, not claims that a device is up to date.
 
-```text
-<ja-JP>
-・動作環境をAndroid 12以降に変更しました。Android 10・11の端末では、インストール済みのバージョン1.3.0をそのまま利用できます。
-・アプリの内部構成を改善しました。
-</ja-JP>
-<en-US>
-• Now requires Android 12 or later. Devices on Android 10 or 11 can keep using their installed version 1.3.0.
-• Internal improvements.
-</en-US>
-```
+| Order | Japanese | English | Content |
+| --- | --- | --- | --- |
+| 1 | [ja-JP/01-android-details.png](screenshots/ja-JP/01-android-details.png) | [en-US/01-android-details.png](screenshots/en-US/01-android-details.png) | Expanded Android version widget with the Google Play widget |
+| 2 | [ja-JP/02-play-shortcut.png](screenshots/ja-JP/02-play-shortcut.png) | [en-US/02-play-shortcut.png](screenshots/en-US/02-play-shortcut.png) | Long-press menu with Play update |
+| 3 | [ja-JP/03-system-update.png](screenshots/ja-JP/03-system-update.png) | [en-US/03-system-update.png](screenshots/en-US/03-system-update.png) | System update screen opened by the app |
+| 4 | [ja-JP/04-widget-picker.png](screenshots/ja-JP/04-widget-picker.png) | [en-US/04-widget-picker.png](screenshots/en-US/04-widget-picker.png) | Widget picker showing both widget types |
 
-## Screenshots and feature graphic
+### Screenshot alternative text
 
-The app's screens are unchanged, so keep the 1.3.0 images uploaded in Play Console.
-They are in [1.3.0/screenshots](../1.3.0/README.md#screenshots) and
-[1.3.0/feature-graphic](../1.3.0/README.md#feature-graphic), with their order and
-alternative text. They were captured on Android 17, which 1.4.0 still supports.
+| Image | 日本語 | English |
+| --- | --- | --- |
+| 1 | Androidバージョン、セキュリティパッチ、ビルドID、APIレベルを表示するウィジェットと、Google Playシステム更新のウィジェット | An expanded widget showing the Android version, security patch, build ID, and API level, with the Google Play system update widget. |
+| 2 | アプリアイコンを長押しすると表示される「Play更新」ショートカット | The Play update shortcut in the app icon's long-press menu. |
+| 3 | アプリアイコンから開いた端末のシステムアップデート設定 | The device system update settings opened from the app icon. |
+| 4 | 「Android バージョン」と「Google Play更新」を選べるウィジェット一覧 | The widget picker with Android version and Google Play update widgets. |
 
-## Publishing notes
+## Feature graphic
 
-- App: version 1.4.0 (version code 7), `minSdk` 31, `targetSdk` 36.
-- Devices below Android 12 don't receive 1.4.0 and keep their installed 1.3.0.
-  When reviewing the release, Play Console warns that it drops support for some
-  devices. This is expected.
-- New installs on Android 10–11 need the 1.3.0 bundle (version code 6) retained in
-  the 1.4.0 production release. Without it, Play shows the app as incompatible on
-  those devices.
-- Store listing changes are shared across tracks. Publish the description update
-  with the production release of 1.4.0.
-- Verify Google Play update navigation on a supported, Google Play-enabled device
-  using the [release checks](../../../README.md#development-and-verification).
-  Emulators don't have the Google Play system update screen.
+Upload the matching file as each language's feature graphic. Both are 1024×500,
+24-bit RGB PNG.
 
-## References
+| Japanese | English |
+| --- | --- |
+| [ja-JP.png](feature-graphic/ja-JP.png) | [en-US.png](feature-graphic/en-US.png) |
 
-- [1.3.0 listing](../1.3.0/README.md)
-- [Store listing fields and localization](https://support.google.com/googleplay/android-developer/answer/9859152?hl=en)
-- [Release notes format and limits](https://support.google.com/googleplay/android-developer/answer/9859348?hl=en)
+The widgets are cropped from screenshot 1 of the same language, with the widget's
+rounded corners kept, so they match the app. The icons are the app's launcher and
+Play update icons. Text is set in Hiragino Sans and avoids saying a device is up
+to date.
