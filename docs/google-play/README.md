@@ -4,6 +4,7 @@ Each release keeps its listing copy and screenshots together. Choose a release
 below for localized titles, descriptions, release notes, screenshot order, and
 capture details.
 
+- [1.4.0](1.4.0/README.md)
 - [1.3.0](1.3.0/README.md)
 
 ## Layout
